@@ -4,6 +4,7 @@
   "description": "Webscrap app with node.js and puppeteer.",
   "main": "scraper.js",
   "scripts": {
+    "start":"node scraper.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
