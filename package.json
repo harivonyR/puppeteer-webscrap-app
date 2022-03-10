@@ -1,0 +1,22 @@
+{
+  "name": "puppeteer-webscrap-app",
+  "version": "1.0.0",
+  "description": "Webscrap app with node.js and puppeteer.",
+  "main": "scraper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harivonyR/puppeteer-webscrap-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harivonyR/puppeteer-webscrap-app/issues"
+  },
+  "homepage": "https://github.com/harivonyR/puppeteer-webscrap-app#readme",
+  "dependencies": {
+    "puppeteer": "^13.5.1"
+  }
+}
