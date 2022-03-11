@@ -17,8 +17,8 @@ const puppeteer = require('puppeteer');
         
         .map(partner=>({
             title : partner.querySelector('h3.title').innerText,
-            partnerType : partner.querySelector('li a').innerText,
-            logo : partner.querySelector('.logo-wrapper img').src
+            partnerType : partner.querySelector('li a').innerText
+            //logo : partner.querySelector('.logo-wrapper img').src
             })
         )
     )
