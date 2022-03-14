@@ -11,7 +11,7 @@ const puppeteer = require('puppeteer');
     console.log('[👍] page target ..');
 
     const partners = await page.evaluate(
-        ()=> Array.from(document.querySelectorAll('.inner-container'))
+        async ()=> await Array.from(document.querySelectorAll('.inner-container'))
         
         .map(partner=>{
             let data = {
