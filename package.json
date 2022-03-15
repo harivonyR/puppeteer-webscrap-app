@@ -4,6 +4,7 @@
   "description": "Webscrap app with node.js and puppeteer.",
   "main": "scraper.js",
   "scripts": {
+    "nodemon" : "nodemon scrapper.js",
     "start": "node scraper.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,6 +19,8 @@
   },
   "homepage": "https://github.com/harivonyR/puppeteer-webscrap-app#readme",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
+    "nodemon": "^2.0.15",
     "objects-to-csv": "^1.3.6",
     "puppeteer": "^13.5.1"
   }
