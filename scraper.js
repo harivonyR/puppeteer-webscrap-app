@@ -7,7 +7,7 @@ const puppeteer = require('puppeteer');
 (async () => {
     const browser = await puppeteer.launch({
         ignoreHTTPSErrors: true,
-        headless: false,
+        headless: true,
         devtools: false,
         args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
@@ -17,11 +17,15 @@ const puppeteer = require('puppeteer');
     const page = await browser.newPage();
     console.log('[👍] page  ..');
 
-    await page.goto('https://www.french-property.com/properties-for-sale?currency=EUR&land_size_unit=m%C2%B2',{waitUntil: 'load', timeout : 0});
+    // Browse
+    page.goto('https://www.french-property.com/properties-for-sale?currency=EUR&land_size_unit=m%C2%B2',{waitUntil: 'load', timeout : 0});
     
-    //await new Promise(resolve => setTimeout(resolve, 20000));
-
-    console.log('[👍] page target ..');
+    // Stop Browser loading after 20s
+    await new Promise(resolve => setTimeout(resolve, 20000))
+        .then(()=>{
+            page._client.send("Page.stopLoading");
+            console.log('[👍] page target ..');
+        });
 
     let res = [];
 
@@ -38,25 +42,11 @@ const puppeteer = require('puppeteer');
                 return data;
             }
             catch(e){
-                console.log(e)
+                console.log("ERR :"+e);
             }
         })
     )
 
-    // proprieties = await proprieties.map((propriety)=>{
-    //     return propriety.textContent
-    // })
-    
-    // proprieties = proprieties.map((propriety)=>{
-    //     let data = {
-    //         name :  propriety.querySelector('h4').innerText
-    //         // price :         propriety.querySelector('.p24_price').innerText,
-    //         // img :           propriety.querySelector('span.p24_image > img').src,
-    //         // description :   propriety.querySelector('.p24_excerpt').innerText,
-    //         // location :      propriety.querySelector('.p24_location').innerText
-    //     }
-    //     return data;
-    // })
     console.log('[👍] scrap ok');
 
     // log received data
