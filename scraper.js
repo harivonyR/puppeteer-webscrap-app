@@ -1,8 +1,9 @@
 const puppeteer = require('puppeteer');
-//const cheerio = require ('cheerio')
 
-
-
+// DATA
+let res = [];
+let link = 'https://www.french-property.com/properties-for-sale?start_page=1';
+let totalPage = 4;
 
 (async () => {
     const browser = await puppeteer.launch({
@@ -17,40 +18,45 @@ const puppeteer = require('puppeteer');
     const page = await browser.newPage();
     console.log('[👍] page  ..');
 
-    // Browse
-    page.goto('https://www.french-property.com/properties-for-sale?currency=EUR&land_size_unit=m%C2%B2',{waitUntil: 'load', timeout : 0});
+    page.goto(link,{waitUntil: 'load', timeout : 0});
+    // Browse to page
+    for(let pageNumber=1;  pageNumber<=totalPage;pageNumber++){
+        // page.goto(link+pageNumber,{waitUntil: 'load', timeout : 0});
     
-    // Stop Browser loading after 20s
-    await new Promise(resolve => setTimeout(resolve, 20000))
-        .then(()=>{
-            page._client.send("Page.stopLoading");
-            console.log('[👍] page target ..');
-        });
-
-    let res = [];
-
-    let proprieties = await page.evaluate(
-        ()=> Array.from(document.querySelectorAll('li.property_listing'))
-        .map((propriety)=>{
-            try{
-                let data = {
-                    name : propriety.querySelector('h3 a').innerText,
-                    price : propriety.querySelector('h4').innerText,
-                    region : propriety.querySelector('span.region').innerText
-                    
+        // Stop Browser loading after 20s
+        await new Promise(resolve => setTimeout(resolve, 20000))
+            .then(()=>{
+                page._client.send("Page.stopLoading");
+                console.log('[👍] Page '+pageNumber);
+            });
+    
+        // Scrap page
+        let properties = await page.evaluate(
+            ()=> Array.from(document.querySelectorAll('li.property_listing'))
+            .map((propertie)=>{
+                try{
+                    let data = {
+                        name : propertie.querySelector('h3 a').innerText,
+                        price : propertie.querySelector('h4').innerText,
+                        region : propertie.querySelector('span.region strong').innerText
                     }
-                return data;
-            }
-            catch(e){
-                console.log("ERR :"+e);
-            }
-        })
-    )
+                    return data;
+                }
+                catch(e){
+                    console.log("ERR :"+e) ;
+                }
+            })
+        )
 
-    console.log('[👍] scrap ok');
-
+        // Concatenate the new result 
+        res = [...res,...properties];
+        console.log('[👍] Scrap '+pageNumber);
+        
+        await page.click("li.next a");
+    }
+    
     // log received data
-    console.log(proprieties);
+    console.log(res);
 
     await browser.close();
 })();
