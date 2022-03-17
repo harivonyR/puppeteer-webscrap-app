@@ -1,11 +1,15 @@
 const puppeteer = require('puppeteer');
+const login = require('./user')
+const saveToCsv = require('./file')
 
 // DATA
 let res = [];
 let link = 'https://www.french-property.com/properties-for-sale?start_page=1';
-let totalPage = 4;
+let totalPage = 3;
 
 (async () => {
+
+// RUN puppeteer
     const browser = await puppeteer.launch({
         ignoreHTTPSErrors: true,
         headless: true,
@@ -14,23 +18,26 @@ let totalPage = 4;
     });
     console.log('[👍] browser .. ');
 
-
     const page = await browser.newPage();
     console.log('[👍] page  ..');
 
     page.goto(link,{waitUntil: 'load', timeout : 0});
-    // Browse to page
-    for(let pageNumber=1;  pageNumber<=totalPage;pageNumber++){
+
+// LOGIN
+    await login(browser)
+    console.log('login complete')
+// BROWSE PAGE
+    for(let pageNumber=1; pageNumber<=totalPage; pageNumber++){
         // page.goto(link+pageNumber,{waitUntil: 'load', timeout : 0});
     
-        // Stop Browser loading after 20s
+        // STOP Browser loading after 20s
         await new Promise(resolve => setTimeout(resolve, 20000))
             .then(()=>{
                 page._client.send("Page.stopLoading");
                 console.log('[👍] Page '+pageNumber);
             });
     
-        // Scrap page
+    // SCRAP data
         let properties = await page.evaluate(
             ()=> Array.from(document.querySelectorAll('li.property_listing'))
             .map((propertie)=>{
@@ -48,15 +55,16 @@ let totalPage = 4;
             })
         )
 
-        // Concatenate the new result 
+    // CONCATENATE the new result 
         res = [...res,...properties];
         console.log('[👍] Scrap '+pageNumber);
         
         await page.click("li.next a");
     }
     
-    // log received data
+    // LOG received data
     console.log(res);
+    //saveToCsv(res,'french_property');
 
     await browser.close();
 })();
