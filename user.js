@@ -5,18 +5,20 @@ async function login (browser){
     console.log('[👍] login browser .. ');
 
     const loginPage = await browser.newPage();
-    console.log('[👍] login ready  ..');
+    console.log('[👍] login page ready  ..');
 
-    loginPage.goto('https://www.french-property.com/properties-for-sale?start_page=1',{waitUntil: 'load', timeout : 0});
+    //loginPage.goto('https://www.french-property.com/properties-for-sale?start_page=1',{waitUntil: 'load', timeout : 0});
+
+    loginPage.goto('https://www.french-property.com/login')
 
     await new Promise(resolve => setTimeout(resolve, 20000))
             .then(()=>{
                 loginPage._client.send("Page.stopLoading");
-                console.log('[👍] login open ');
+                console.log('[👍] login opened ');
             });
     
-    await loginPage.waitForSelector('li.user a')     
-    await loginPage.click('li.user a');
+    // await loginPage.waitForSelector('li.user a')     
+    // await loginPage.click('li.user a');
     
     await sleep(10000)
     await loginPage.waitForSelector('#email')

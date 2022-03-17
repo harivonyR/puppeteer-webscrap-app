@@ -64,7 +64,12 @@ let totalPage = 3;
     
     // LOG received data
     console.log(res);
-    //saveToCsv(res,'french_property');
 
-    await browser.close();
+    // Data struggling
+    res = res.filter((e)=>e!=null)
+
+    // Save to the folder
+    saveToCsv(res,'french_property');
+
+    //await browser.close();
 })();
