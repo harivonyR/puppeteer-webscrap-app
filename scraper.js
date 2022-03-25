@@ -5,13 +5,13 @@ const saveToCsv = require('./file')
 // DATA
 let res = [];
 let link = 'https://www.french-property.com/properties-for-sale?start_page=1';
-let totalPage = 3;
+let totalPage = 2;
 
 (async () => {
 
 // RUN puppeteer
     const browser = await puppeteer.launch({
-        ignoreHTTPSErrors: true,
+        ignoreHTTPSErrors: false,
         headless: true,
         devtools: false,
         args: ['--no-sandbox', '--disable-setuid-sandbox']
