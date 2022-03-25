@@ -22,20 +22,21 @@ let link = 'https://service.europe.arco.biz/ktmthinclient/Validation.aspx';
     await page.goto(link);
     console.log('[👍] Main page opened')
 
-    // STOP Browser loading after 20s
-    // await new Promise(resolve => setTimeout(resolve, 10000))
-    //     .then(()=>{
-    //         page._client.send("Page.stopLoading");
-    //         console.log('[👍] Page '+pageNumber);
-    //     });
-
     // SCRAP data
     await page.waitForSelector('.x-grid3-row-table tr')
 
     let rows = await page.evaluate(
             ()=> Array.from(window.document.querySelectorAll('.x-grid3-row-table tr'))
-                .map((row)=>row.querySelector('div.x-grid3-col-name').innerText)
+            .map((row)=>{
+                let data = {
+                    batch : row.querySelector('div.x-grid3-col-name').innerText,
+                    status : row.querySelector('div.x-grid3-col-status').innerText,
+                    id : row.querySelector('div.x-grid3-col-ID').innerText,
+                }
+                return data
+            })
     )
+    
     // CONCATENATE the new result
         //res = [...res,...properties];
     
