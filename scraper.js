@@ -9,7 +9,7 @@ let link = 'https://service.europe.arco.biz/ktmthinclient/Validation.aspx';
 
 // RUN puppeteer
     const browser = await puppeteer.launch({
-        headless: false
+        headless: true
     });
     console.log('[👍] browser .. ');
 
