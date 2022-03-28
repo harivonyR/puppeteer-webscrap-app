@@ -4,6 +4,7 @@ const saveToCsv = require('./file')
 
 // DATA
 let link = 'https://service.europe.arco.biz/ktmthinclient/Validation.aspx';
+
 (async () => {
 
 // RUN puppeteer
@@ -24,6 +25,7 @@ let link = 'https://service.europe.arco.biz/ktmthinclient/Validation.aspx';
 
     // SCRAP data
     await page.waitForSelector('.x-grid3-row-table tr')
+    .then(()=>console.log('selector ok'))
 
     let rows = await page.evaluate(
             ()=> Array.from(window.document.querySelectorAll('.x-grid3-row-table tr'))
@@ -31,7 +33,7 @@ let link = 'https://service.europe.arco.biz/ktmthinclient/Validation.aspx';
                 let data = {
                     batch : row.querySelector('div.x-grid3-col-name').innerText,
                     status : row.querySelector('div.x-grid3-col-status').innerText,
-                    id : row.querySelector('div.x-grid3-col-ID').innerText,
+                    document : row.querySelector('div.x-grid3-col-6').innerText
                 }
                 return data
             })
