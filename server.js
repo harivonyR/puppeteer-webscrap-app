@@ -8,13 +8,14 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-app.get('/', async (req, res)=> {
-    let rows = await mockScrapper.scrap()
-    res.render('index', {rows : rows})
+app.get('/',  (req, res)=> {
+    //
+    res.render('index', {})
 });
 
-app.get('/data',(req,res)=>{
-    res.send('Data here')
+app.get('/data',async (req,res)=>{
+    let rows = await mockScrapper.scrap()
+    res.render('data', {rows : rows})
 })
 
 const port = 3000;

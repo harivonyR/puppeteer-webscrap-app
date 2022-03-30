@@ -1,5 +1,6 @@
 <%- include('partials/header') -%>
 <div class="container mt-5">
+    <a href="/data" class="btn btn-primary">Scrap Data</a>
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
             <tr>
@@ -9,7 +10,13 @@
             </tr>
         </thead>
             <tbody>
-                
+                <% rows.forEach((row)=> { %>
+                    <tr>
+                        <td><%= row.batch %></td>
+                        <td><%= row.status %></td>
+                        <td><%= row.document %></td>
+                    </tr>
+               <% }) %>
             </tbody>
         </table>
     </div>
