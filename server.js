@@ -1,7 +1,7 @@
 const express = require ("express");
 const app = express();
 const path = require ("path")
-const mockScrapper = require ('./scpraping/mockScrapper')
+const mockScrapper = require ('./control/scraping/mockScrapper')
 const fs = require ('fs')
 
 //const scraper = require("scraper")
@@ -20,7 +20,7 @@ app.get('/data',async (req,res)=>{
 })
 
 app.get('/download', async (req,res)=>{
-    res.download('batch.csv'); 
+    res.download('./public/assets.batch.csv'); 
 })
 
 const port = 3000;
