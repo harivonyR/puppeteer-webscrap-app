@@ -9,7 +9,8 @@ let link = 'https://service.europe.arco.biz/ktmthinclient/Validation.aspx';
 
 // RUN puppeteer
     const browser = await puppeteer.launch({
-        headless: true
+        headless: true,
+
     });
     console.log('[👍] browser .. ');
 
@@ -43,11 +44,12 @@ let link = 'https://service.europe.arco.biz/ktmthinclient/Validation.aspx';
         //res = [...res,...properties];
     
     // LOG received data
+    // Data struggling
+    // return status "Ready"
+    rows = rows.filter((e)=>e.status=="Ready")
+    
     console.log(rows);
     return (rows);
-    // Data struggling
-    //res = res.filter((e)=>e!=null)
-
     // Save to the folder
     //saveToCsv(res,'french_property');
 
