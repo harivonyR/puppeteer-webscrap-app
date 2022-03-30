@@ -2,6 +2,8 @@ const express = require ("express");
 const app = express();
 const path = require ("path")
 const mockScrapper = require ('./scpraping/mockScrapper')
+const fs = require ('fs')
+
 //const scraper = require("scraper")
 var rows = []
 app.set('views', path.join(__dirname, 'views'));
@@ -18,8 +20,9 @@ app.get('/data',async (req,res)=>{
 })
 
 app.get('/download', async (req,res)=>{
-    res.send("Download page here")
+    res.download('batch.csv'); 
 })
+
 const port = 3000;
 app.listen(port,()=>{
     console.log('Server is up on http://localhost:'+port)

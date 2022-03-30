@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 const login = require('../user')
-//const saveToCsv = require('./file')
+const saveToCsv = require('./file')
 
 // DATA
 let link = 'https://service.europe.arco.biz/ktmthinclient/Validation.aspx';
@@ -45,10 +45,12 @@ async function scrap() {
     rows = rows.filter((e)=>e.status=="Ready")
     
     console.log(rows);
+    saveToCsv(rows,'batch');
+    
     return (rows);
 
     // Save to the folder
-    //saveToCsv(res,'french_property');
+    
 
     //await browser.close();
 }
