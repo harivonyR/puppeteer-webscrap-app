@@ -10,16 +10,16 @@
         <thead>
             <tr>
                 <th>Batch</th>
-                <th>Status</th>
                 <th>Document</th>
+                <th>Status</th>
             </tr>
         </thead>
             <tbody>
                 <% rows.forEach((row)=> { %>
                     <tr>
                         <td><%= row.batch %></td>
+                        <td><%= row.document%></td>
                         <td><%= row.status %></td>
-                        <td><%= row.document %></td>
                     </tr>
                <% }) %>
             </tbody>

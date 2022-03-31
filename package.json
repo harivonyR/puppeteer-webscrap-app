@@ -2,10 +2,10 @@
   "name": "puppeteer-webscrap-app",
   "version": "1.0.0",
   "description": "Webscrap app with node.js and puppeteer.",
-  "main": "scraper.js",
+  "main": "server.js",
   "scripts": {
     "nodemon": "nodemon scrapper.js",
-    "start": "node scraper.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/harivonyR/puppeteer-webscrap-app#readme",
   "dependencies": {
+    "@aternus/csv-to-xlsx": "^1.0.19",
     "cheerio": "^1.0.0-rc.10",
     "connect-flash": "^0.1.1",
     "ejs": "^3.1.6",
