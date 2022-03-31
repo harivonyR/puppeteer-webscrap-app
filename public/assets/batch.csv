@@ -1,6 +1,8 @@
 batch,status,document
-prov_wvlaanderen-05- BATCH 52702,Ready,6
-BATCH 2288607,Ready,1
-BATCH 2288609,Ready,1
-BATCH 2288611,Ready,1
-BATCH 2288613,Ready,1
+stad_aalst-01- BATCH 7990067,Ready,15
+stad_hasselt-02- BATCH 7284436,Ready,2
+pol_lommel-03- BATCH 8755516,Ready,1
+gem_malle-03- BATCH 8755530,Ready,11
+gem_lichtervelde-MULTI- BATCH 55,Ready,4
+gem_wevelgem-MULTI- BATCH 346933,Ready,9
+zorg_wervik-MULTI- BATCH 3469341,Ready,1
