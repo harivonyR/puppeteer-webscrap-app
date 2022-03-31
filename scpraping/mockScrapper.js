@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer');
-const login = require('../user')
+const login = require('./user')
 const saveToCsv = require('./file')
 
 // DATA
