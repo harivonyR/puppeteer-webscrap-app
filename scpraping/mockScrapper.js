@@ -15,7 +15,6 @@ async function scrap() {
     const page = await browser.newPage();
     console.log('[👍] new page created  ..');
 
-
 // LOGIN
     await login(browser)
 
@@ -31,8 +30,8 @@ async function scrap() {
             .map((row)=>{
                 let data = {
                     batch : row.querySelector('div.x-grid3-col-name').innerText,
-                    status : row.querySelector('div.x-grid3-col-status').innerText,
-                    document : row.querySelector('div.x-grid3-col-6').innerText
+                    document : row.querySelector('div.x-grid3-col-6').innerText,
+                    status : row.querySelector('div.x-grid3-col-status').innerText
                 }
                 return data
             })
