@@ -20,7 +20,7 @@ app.get('/data',async (req,res)=>{
 })
 
 app.get('/download', async (req,res)=>{
-    res.download('batch.csv'); 
+    res.download('./public/assets/batch.csv'); 
 })
 
 const port = 3000;

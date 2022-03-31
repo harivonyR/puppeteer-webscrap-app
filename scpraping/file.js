@@ -5,7 +5,7 @@ async function saveToCsv(data,filename){
  
   console.log(await csv);
   // Save to file:
-  await csv.toDisk(`./${filename}.csv`);
+  await csv.toDisk(`./public/assets/${filename}.csv`);
  
   // Return the CSV file as string:
   console.log(await csv.toString());
