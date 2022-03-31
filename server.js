@@ -2,7 +2,8 @@ const express = require ("express");
 const app = express();
 const path = require ("path")
 const mockScrapper = require ('./scpraping/mockScrapper')
-const fs = require ('fs')
+const fs = require ('fs');
+const sleep = require("./scpraping/helper");
 
 //const scraper = require("scraper")
 var rows = []
@@ -15,6 +16,7 @@ app.get('/',  (req, res)=> {
 });
 
 app.get('/data',async (req,res)=>{
+    // res.send('loading')
     rows = await mockScrapper.scrap()
     res.render('data', {rows : rows})
 })
@@ -23,7 +25,12 @@ app.get('/download', async (req,res)=>{
     res.download('./public/assets/batch.xls'); 
 })
 
-const port = 3000;
+app.get('/loading',async(req,res)=>{
+    ///let data = await sleep(5000)
+    res.render('loading')
+})
+
+const port = 3535;
 app.listen(port,()=>{
     console.log('Server is up on http://localhost:'+port)
 })
