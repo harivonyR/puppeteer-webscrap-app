@@ -22,9 +22,9 @@ app.get('/data',async (req,res)=>{
     res.render('data', {rows : rows})
 })
 
-// app.get('/download', async (req,res)=>{
-//     res.download('./public/assets/batch.xls'); 
-// })
+app.get('/download', async (req,res)=>{
+     res.download('./public/assets/batch.xls'); 
+ })
 
 // app.get('/loading',async(req,res)=>{
 //     ///let data = await sleep(5000)

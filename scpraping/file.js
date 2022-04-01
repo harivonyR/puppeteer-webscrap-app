@@ -1,6 +1,6 @@
 const ObjectsToCsv = require('objects-to-csv');
 const convertCsvToXlsx = require('@aternus/csv-to-xlsx');
-
+const fs = require('fs')
 /* Save data to csv */
 async function saveToCsv(data,filename){
   const csv = new ObjectsToCsv(data);
@@ -19,7 +19,11 @@ async function csvToXls(filename){
   //let destination = path.join(__dirname, 'converted_report.xlsx');
   let source = `./public/assets/${filename}.csv`
   let destination = `./public/assets/${filename}.xls`
-
+  try{
+    fs.unlinkSync(`./public/assets/${filename}.xls`);
+  }catch(e){
+    console.log(e)
+  }
   try {
     convertCsvToXlsx(source, destination);
     } catch (e) {
