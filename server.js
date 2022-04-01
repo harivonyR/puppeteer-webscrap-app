@@ -1,9 +1,10 @@
 const express = require ("express");
 const app = express();
 const path = require ("path")
-const mockScrapper = require ('./scpraping/mockScrapper')
+const PORT = process.env.PORT || 8080;
+//const mockScrapper = require ('./scpraping/mockScrapper')
 const fs = require ('fs');
-const sleep = require("./scpraping/helper");
+//const sleep = require("./scpraping/helper");
 
 //const scraper = require("scraper")
 var rows = []
@@ -30,8 +31,8 @@ app.get('/',  (req, res)=> {
 //     res.render('loading')
 // })
 
-const port = process.env.PORT || 3535;
-app.listen(port,()=>{
-    console.log('Server is up on http://localhost:'+port)
-})
+const server = app.listen(process.env.PORT || PORT, () => {
+    const port = server.address().port;
+    console.log(`Express is working on port ${port}`);
+  });
 
