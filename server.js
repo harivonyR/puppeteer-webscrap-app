@@ -12,7 +12,8 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.get('/',  (req, res)=> {
-    res.render('index', {})
+    res.send('home')
+    //res.render('index', {})
 });
 
 app.get('/data',async (req,res)=>{
