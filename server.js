@@ -30,7 +30,7 @@ app.get('/loading',async(req,res)=>{
     res.render('loading')
 })
 
-const port = 3535;
+const port = process.env.PORT || 3535;
 app.listen(port,()=>{
     console.log('Server is up on http://localhost:'+port)
 })
