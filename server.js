@@ -2,9 +2,9 @@ const express = require ("express");
 const app = express();
 const path = require ("path")
 const PORT = process.env.PORT || 8080;
-//const mockScrapper = require ('./scpraping/mockScrapper')
+const mockScrapper = require ('./scpraping/mockScrapper')
 const fs = require ('fs');
-//const sleep = require("./scpraping/helper");
+const sleep = require("./scpraping/helper");
 
 //const scraper = require("scraper")
 var rows = []
@@ -16,11 +16,11 @@ app.get('/',  (req, res)=> {
     res.render('index', {})
 });
 
-// app.get('/data',async (req,res)=>{
-//     // res.send('loading')
-//     rows = await mockScrapper.scrap()
-//     res.render('data', {rows : rows})
-// })
+app.get('/data',async (req,res)=>{
+    // res.send('loading')
+    rows = await mockScrapper.scrap()
+    res.render('data', {rows : rows})
+})
 
 // app.get('/download', async (req,res)=>{
 //     res.download('./public/assets/batch.xls'); 
