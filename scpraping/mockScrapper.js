@@ -22,8 +22,8 @@ async function scrap() {
     console.log('[👍] Main page opened')
 
     // SCRAP data
-    await page.waitForSelector('.x-grid3-row-table tr')
-    .then(()=>console.log('selector ok'))
+    //await page.waitForSelector('.x-grid3-row-table tr')
+    //.then(()=>console.log('selector ok'))
 
     let rows = await page.evaluate(
             ()=> Array.from(window.document.querySelectorAll('.x-grid3-row-table tr'))
