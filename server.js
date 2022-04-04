@@ -1,12 +1,13 @@
 const express = require ("express");
 const app = express();
 const path = require ("path")
-const PORT = process.env.PORT || 8080;
-const mockScrapper = require ('./scpraping/mockScrapper')
-const fs = require ('fs');
-const sleep = require("./scpraping/helper");
 const logger = require('heroku-logger')
+const fs = require ('fs');
 
+const sleep = require("./scpraping/helper");
+const mockScrapper = require ('./scpraping/mockScrapper')
+
+const PORT = process.env.PORT || 8080;
 var rows = []
 
 async function fillRows(){
@@ -40,5 +41,6 @@ app.get('/download', async (req,res)=>{
 const server = app.listen(process.env.PORT || PORT, () => {
     const port = server.address().port;
     console.log(`Express is working on port ${port}`);
+    logger.info(`Express is working on port ${port}`);
   });
 
