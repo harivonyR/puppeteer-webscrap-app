@@ -8,7 +8,8 @@ let link = 'https://service.europe.arco.biz/ktmthinclient/Validation.aspx';
 async function scrap() {
 // RUN puppeteer
     const browser = await puppeteer.launch({
-        headless: true
+        headless: true,
+        args: ["--no-sandbox", "--disable-setuid-sandbox"]
     });
     console.log('[👍] browser .. ');
 
@@ -22,7 +23,7 @@ async function scrap() {
     console.log('[👍] Main page opened')
 
     // SCRAP data
-    await page.waitForSelector('.x-grid3-row-table tr')
+    //await page.waitForSelector('.x-grid3-row-table tr')
     //.then(()=>console.log('selector ok'))
 
     let rows = await page.evaluate(
