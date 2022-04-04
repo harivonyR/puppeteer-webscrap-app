@@ -7,12 +7,12 @@ const fs = require ('fs');
 const sleep = require("./scpraping/helper");
 const logger = require('heroku-logger')
 
-//const scraper = require("scraper")
+const scraper = require("scraper")
 var rows = []
 
 async function fillRows(){
     rows = await mockScrapper.scrap()
-    logger.info('rows filled up '+rows)
+    logger.info('rows filled up :'+rows)
 }
 
 app.set('views', path.join(__dirname, 'views'));
