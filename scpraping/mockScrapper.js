@@ -10,7 +10,7 @@ async function scrap() {
 // RUN puppeteer
     const browser = await puppeteer.launch({
         headless: true,
-        args: ["--no-sandbox", "--disabled-setupid-sandbox"],
+        args: ["--no-sandbox", "--disable-setuid-sandbox"],
         ignoreDefaultArgs: ['--disable-extensions']
     });
     console.log('[👍] browser .. ');
