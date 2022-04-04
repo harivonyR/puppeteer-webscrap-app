@@ -5,13 +5,13 @@ const PORT = process.env.PORT || 8080;
 const mockScrapper = require ('./scpraping/mockScrapper')
 const fs = require ('fs');
 const sleep = require("./scpraping/helper");
+const logger = require('heroku-logger')
 
-//const scraper = require("scraper")
 var rows = []
 
 async function fillRows(){
     rows = await mockScrapper.scrap()
-    .then(()=>alert('scrap ok'))
+    logger.info('rows filled up :'+rows)
 }
 
 app.set('views', path.join(__dirname, 'views'));
