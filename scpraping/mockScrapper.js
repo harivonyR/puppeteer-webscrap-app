@@ -9,7 +9,8 @@ let link = 'https://service.europe.arco.biz/ktmthinclient/Validation.aspx';
 async function scrap() {
 // RUN puppeteer
     const browser = await puppeteer.launch({
-        headless: true
+        headless: true,
+        executablePath: '/usr/bin/chromium-browser'
     });
     console.log('[👍] browser .. ');
     logger.info('[👍] browser .. ');
