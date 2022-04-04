@@ -10,12 +10,12 @@ async function login (browser){
     await loginPage.goto('https://service.europe.arco.biz/ktmthinclient/ValidationLogin.aspx')
     console.log('[👍] login page opened ');
 
-    await sleep(4000)
+    //await sleep(4000)
     //await loginPage.waitForSelector('#userName')
-    await loginPage.type('#userName','SENMAU62',{delai:100});
-    await sleep(3000)
+    await loginPage.type('#userName','SENMAU62',{delai:50});
+    //await sleep(3000)
     //await loginPage.waitForSelector('#userPassword')
-    await loginPage.type('#userPassword','M3rckx',{delai:100});
+    await loginPage.type('#userPassword','M3rckx',{delai:50});
     await loginPage.keyboard.press('Enter');
     
     console.log('[👍] Login Done ! ');
