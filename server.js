@@ -8,22 +8,28 @@ const sleep = require("./scpraping/helper");
 
 //const scraper = require("scraper")
 var rows = []
+
+async function fillRows(){
+    rows = await mockScrapper.scrap()
+    .then(()=>alert('scrap ok'))
+}
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.get('/',  (req, res)=> {
     res.render('index', {})
+    fillRows()
 });
 
 app.get('/data',async (req,res)=>{
-    // res.send('loading')
-    rows = await mockScrapper.scrap()
+    //rows = await mockScrapper.scrap()   // ISSUE, timoeout request erro 503 on heroku server
     res.render('data', {rows : rows})
 })
 
 app.get('/download', async (req,res)=>{
-     res.download('./public/assets/batch.xls'); 
+    res.download('./public/assets/batch.xls'); 
  })
 
 // app.get('/loading',async(req,res)=>{
