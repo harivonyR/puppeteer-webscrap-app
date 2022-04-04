@@ -12,9 +12,6 @@ var rows = []
 
 async function fillRows(){
     rows = await mockScrapper.scrap()
-    .then(()=>{
-        logger.info('rows filled up :'+rows)})
-    .catch(err);
 }
 
 app.set('views', path.join(__dirname, 'views'));
