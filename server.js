@@ -7,7 +7,6 @@ const fs = require ('fs');
 const sleep = require("./scpraping/helper");
 const logger = require('heroku-logger')
 
-const scraper = require("scraper")
 var rows = []
 
 async function fillRows(){
