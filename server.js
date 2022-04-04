@@ -1,6 +1,7 @@
 const express = require ("express");
 const app = express();
 const path = require ("path")
+const PORT = process.env.PORT || 8080;
 const mockScrapper = require ('./scpraping/mockScrapper')
 const fs = require ('fs');
 const sleep = require("./scpraping/helper");
@@ -12,8 +13,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.get('/',  (req, res)=> {
-    res.send('home')
-    //res.render('index', {})
+    res.render('index', {})
 });
 
 app.get('/data',async (req,res)=>{
@@ -23,16 +23,16 @@ app.get('/data',async (req,res)=>{
 })
 
 app.get('/download', async (req,res)=>{
-    res.download('./public/assets/batch.xls'); 
-})
+     res.download('./public/assets/batch.xls'); 
+ })
 
-app.get('/loading',async(req,res)=>{
-    ///let data = await sleep(5000)
-    res.render('loading')
-})
+// app.get('/loading',async(req,res)=>{
+//     ///let data = await sleep(5000)
+//     res.render('loading')
+// })
 
-const port = process.env.PORT || 3535;
-app.listen(port,()=>{
-    console.log('Server is up on http://localhost:'+port)
-})
+const server = app.listen(process.env.PORT || PORT, () => {
+    const port = server.address().port;
+    console.log(`Express is working on port ${port}`);
+  });
 
