@@ -1,7 +1,6 @@
 const puppeteer = require('puppeteer');
 const login = require('./user');
 const {saveToCsv,csvToXls} = require('./file');
-const logger = require('heroku-logger');
 
 // DATA
 let link = 'https://service.europe.arco.biz/ktmthinclient/Validation.aspx';
@@ -13,21 +12,18 @@ async function scrap() {
         args: ["--no-sandbox", "--disable-setuid-sandbox"]
     });
     console.log('[👍] browser .. ');
-    logger.info('[👍] browser .. ');
 
     const page = await browser.newPage();
     console.log('[👍] new page created  ..');
-    logger.info('[👍] new page created  ..');
 
 // LOGIN
     await login(browser)
 
     await page.goto(link);
     console.log('[👍] Main page opened')
-    logger.info('[👍] Main page opened')
 
     // SCRAP data
-    await page.waitForSelector('.x-grid3-row-table tr')
+    //await page.waitForSelector('.x-grid3-row-table tr')
     //.then(()=>console.log('selector ok'))
 
     let rows = await page.evaluate(
