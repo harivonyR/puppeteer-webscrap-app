@@ -10,7 +10,8 @@ async function scrap() {
 // RUN puppeteer
     const browser = await puppeteer.launch({
         headless: true,
-        executablePath: '/usr/bin/chromium-browser'
+        args: ["--no-sandbox", "--disabled-setupid-sandbox"],
+        ignoreDefaultArgs: ['--disable-extensions']
     });
     console.log('[👍] browser .. ');
     logger.info('[👍] browser .. ');
