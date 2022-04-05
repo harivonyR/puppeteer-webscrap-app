@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer');
-const login = require('./user');
+//const login = require('./user');
 const {saveToCsv,csvToXls} = require('./file');
 const sleep = require('./helper');
 const fs = require ('fs')
@@ -11,7 +11,7 @@ async function scrap() {
 // RUN puppeteer
     const browser = await puppeteer.launch({
         ignoreHTTPSErrors: true,
-        headless: true,
+        headless: false,
         devtools: false,
         args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
@@ -20,41 +20,71 @@ async function scrap() {
     const page = await browser.newPage();
     console.log('[👍] new page created  ..');
 
-// LOGIN
-    await login(browser)
+//////////// BEGIN LOGIN
+    console.log('[👍] login browser ');
+
+    //const page = await browser.newPage();
+    console.log('[👍] login page is openning ');
+
+    await page.goto('https://service.europe.arco.biz/ktmthinclient/ValidationLogin.aspx')
+    console.log('[👍] login page opened !');
+
+    //await sleep(4000)
+    await page.waitForSelector('#userName')
+    await page.type('#userName','SENMAU62',{delai:50});
+    //await sleep(3000)
+    await page.waitForSelector('#userPassword')
+    await page.type('#userPassword','M3rckx',{delai:50});
+    await page.keyboard.press('Enter');
+    sleep(5000)
+
+    console.log('[👍] Login Done ! ');
+
+    try{
+        fs.unlinkSync(`./public/assets/login.png`);
+    }catch(e){
+        console.log(e)
+    }
+
+    await page.screenshot({ path: './public/assets/login.png'});
+    
+
+/////////////// END LOGIN
 
     sleep(5000)
-    await page.goto(link,{waitUntil: 'networkidle2', timeout: 35000});
+    //await page.goto(link,{waitUntil: 'networkidle2', timeout: 35000});
     console.log('[👍] Main page opened')
 
     // delete last screensht
     try{
-        fs.unlinkSync(`./public/assets/screenshot.png`);
-      }catch(e){
+        fs.unlinkSync(`./public/assets/screenshot.png`)
+    }catch(e){
         console.log(e)
-      }
+    }
 
+    sleep(3000)
     await page.screenshot({ path: './public/assets/screenshot.png'});
+    
     // stop loading
-    await new Promise(resolve => setTimeout(resolve, 1000))
-            .then(()=>{
-                page._client.send("Page.stopLoading");
-                console.log('[👍] Page stopped');
-            })
-            .catch((e)=>{console.log('ERR'+e)})
+//    await new Promise(resolve => setTimeout(resolve, 1000))
+//            .then(()=>{
+//                page._client.send("Page.stopLoading");
+//                console.log('[👍] Page stopped');
+//            })
+//            .catch((e)=>{console.log('ERR'+e)})
     
     // Block running script
-    page.on("request", request => {
-        if (request.resourceType() === "script"){
-          request.abort()
-        } else {
-          request.continue()
-        }
-      })
-    console.log('script stopped')
+//    page.on("request", request => {
+//        if (request.resourceType() === "script"){
+//          request.abort()
+//        } else {
+//          request.continue()
+//        }
+//      })
+//    console.log('script stopped')
     
     // Wait for selector
-    await page.waitForSelector('.x-grid3-row-table',{visible:true,timeout: 0})
+    await page.waitForSelector('.x-grid3-row-table tr',{visible:true,timeout: 0})
         .then(()=>console.log('Selector ok'))
 
     let rows = await page.evaluate(
