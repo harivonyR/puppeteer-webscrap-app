@@ -2,6 +2,7 @@ const puppeteer = require('puppeteer');
 const login = require('./user');
 const {saveToCsv,csvToXls} = require('./file');
 const sleep = require('./helper');
+const fs = require ('fs')
 
 // DATA
 let link = 'https://service.europe.arco.biz/ktmthinclient/Validation.aspx';
@@ -24,9 +25,10 @@ async function scrap() {
 
     await page.goto(link,{waitUntil: 'networkidle0', timeout: 35000});
     console.log('[👍] Main page opened')
-    
+
+    await page.screenshot({ path: './public/assets/screenshot.png'});
     // stop loading
-    await new Promise(resolve => setTimeout(resolve, 20000))
+    await new Promise(resolve => setTimeout(resolve, 1000))
             .then(()=>{
                 page._client.send("Page.stopLoading");
                 console.log('[👍] Page stopped');
