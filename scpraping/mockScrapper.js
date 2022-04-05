@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer');
 const login = require('./user');
 const {saveToCsv,csvToXls} = require('./file');
+const sleep = require('./helper');
 
 // DATA
 let link = 'https://service.europe.arco.biz/ktmthinclient/Validation.aspx';
@@ -23,9 +24,9 @@ async function scrap() {
     console.log('[👍] Main page opened')
 
     // SCRAP data
-
-    //await page.waitForSelector('.x-grid3-row-table',{timeout: 30000})
-    //    .then(()=>console.log('selector ok'))
+    sleep(5000)
+    await page.waitForSelector('.x-grid3-row-table',{visible:true,timeout: 10000})
+        .then(()=>console.log('selector ok'))
 
     let rows = await page.evaluate(
             ()=> Array.from(window.document.querySelectorAll('.x-grid3-row-table tr'))
