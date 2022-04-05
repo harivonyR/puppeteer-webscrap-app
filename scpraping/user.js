@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer')
 const sleep = require('./helper')
 const logger = require('heroku-logger')
+const fs = require('fs')
 
 async function login (browser){
     console.log('[👍] login browser ');
@@ -20,6 +21,14 @@ async function login (browser){
     await loginPage.keyboard.press('Enter');
     sleep(5000)
     console.log('[👍] Login Done ! ');
+    
+    try{
+        fs.unlinkSync(`./public/assets/login.png`);
+      }catch(e){
+        console.log(e)
+      }
+
+    await loginPage.screenshot({ path: './public/assets/login.png'});
 }
 
 module.exports = login;

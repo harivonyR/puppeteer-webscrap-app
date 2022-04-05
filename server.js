@@ -30,8 +30,12 @@ app.get('/data',async (req,res)=>{
     res.render('data', {rows : rows})
 })
 
-app.get('/screenshot', async (req,res)=>{
+app.get('/screenshot_main', async (req,res)=>{
     res.download('./public/assets/screenshot.png'); 
+ })
+
+ app.get('/screenshot_login', async (req,res)=>{
+    res.download('./public/assets/login.png'); 
  })
 
 app.get('/download', async (req,res)=>{

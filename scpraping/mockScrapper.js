@@ -23,6 +23,7 @@ async function scrap() {
 // LOGIN
     await login(browser)
 
+    sleep(5000)
     await page.goto(link,{waitUntil: 'networkidle2', timeout: 35000});
     console.log('[👍] Main page opened')
 
