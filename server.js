@@ -23,10 +23,20 @@ app.get('/',  (req, res)=> {
     //fillRows()
 });
 
+
+
 app.get('/data',async (req,res)=>{
     rows = await mockScrapper.scrap()   // ISSUE, timoeout request erro 503 on heroku server
     res.render('data', {rows : rows})
 })
+
+app.get('/screenshot_main', async (req,res)=>{
+    res.download('./public/assets/screenshot.png'); 
+ })
+
+ app.get('/screenshot_login', async (req,res)=>{
+    res.download('./public/assets/login.png'); 
+ })
 
 app.get('/download', async (req,res)=>{
     res.download('./public/assets/batch.xls'); 
