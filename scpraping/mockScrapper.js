@@ -8,7 +8,7 @@ let link = 'https://service.europe.arco.biz/ktmthinclient/Validation.aspx';
 async function scrap() {
 // RUN puppeteer
     const browser = await puppeteer.launch({
-        headless: false,
+        headless: true,
         args: ["--no-sandbox", "--disable-setuid-sandbox"]
     });
     console.log('[👍] browser .. ');
