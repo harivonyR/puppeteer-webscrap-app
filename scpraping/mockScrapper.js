@@ -19,11 +19,23 @@ async function scrap() {
 // LOGIN
     await login(browser)
 
-    await page.goto(link,{waitUntil: 'domcontentloaded', timeout: 35000});
+    await page.goto(link,{waitUntil: 'load', timeout: 35000});
     console.log('[👍] Main page opened')
+    
+    // manual page stop
+    // await new Promise(resolve => setTimeout(resolve, 20000))
+    //         .then(()=>{
+    //             page._client.send("Page.stopLoading");
+    //             console.log('[x] Page loading stopped');
+    //         }).catch((error)=>{
+    //             console.log(error)
+    //         })
 
     // SCRAP data
-    await page.waitForSelector('.x-grid3-row-table tr',{ timeout: 0})
+    console.log('[-] Waiting for selector')
+    
+    await page.waitForSelector('.x-grid3-row-table tr',{timeout:6000})
+    
     //.then(()=>console.log('selector ok'))
 
     let rows = await page.evaluate(
