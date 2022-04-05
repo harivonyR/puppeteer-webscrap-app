@@ -10,8 +10,7 @@ async function scrap() {
 // RUN puppeteer
     const browser = await puppeteer.launch({
         headless: true,
-        args: ["--no-sandbox", "--disable-setuid-sandbox"],
-        slowMo: 1000
+        args: ["--no-sandbox", "--disable-setuid-sandbox"]
     });
     console.log('[👍] browser .. ');
 
@@ -24,10 +23,18 @@ async function scrap() {
     await page.goto(link,{waitUntil: 'networkidle0', timeout: 35000});
     console.log('[👍] Main page opened')
 
-    // SCRAP data
-    sleep(5000)
+    page.on("request", request => {
+        if (request.resourceType() === "script"){
+          request.abort()
+        } else {
+          request.continue()
+        }
+      })
+    
+    console.log('script stopped')
+    
     await page.waitForSelector('.x-grid3-row-table',{visible:true,timeout: 0})
-        .then(()=>console.log('selector ok'))
+        .then(()=>console.log('Selector ok'))
 
     let rows = await page.evaluate(
             ()=> Array.from(window.document.querySelectorAll('.x-grid3-row-table tr'))
