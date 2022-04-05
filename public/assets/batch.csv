@@ -1,42 +1,57 @@
 batch,document,status
 BATCH 3188499,1,Ready
-BATCH 1812201,1,Ready
-pol_aarschot-04- BATCH 7367684,3,Ready
-stad_hasselt-02- BATCH 7314437,27,Ready
-BATCH 525627,1,Ready
-BATCH 525629,1,Ready
-stad_stniklaas-04- BATCH 7374125,3,Ready
-gem_oostkamp-03- BATCH 8799982,5,Ready
-gem_kapellen-03- BATCH 8799993,2,Ready
-ocmw_hechteleksel-02- BATCH 7315,2,Ready
-ocmw_herkdestad-MULTI- BATCH 482 4/4/2022 4:15:34 PM,1,Ready
-pol_mechelen-04- BATCH 7374254,1,Ready
-ocmw_turnhout-04- BATCH 7374264,2,Ready
-ocmw_wortegem_petegem-MULTI- BAT,1,Ready
-gem_wortegem_petegem-MULTI- BATC 4/4/2022 4:19:21 PM,3,Ready
-BATCH 526105,1,Ready
-gem_heusden_zolder-MULTI- BATCH 4/4/2022 4:20:38 PM,4,Ready
-ocmw_herne-MULTI- BATCH 4823020,4,Ready
-gem_kinrooi-MULTI- BATCH 5604952,1,Ready
-gem_kruisem-MULTI- BATCH 5604954,1,Ready
-gem_nazareth-MULTI- BATCH 367619,1,Ready
-gem_lennik-MULTI- BATCH 5604956,4,Ready
-gem_linter-MULTI- BATCH 5604958,1,Ready
-zorg_zorgbandleieenschelde-MULTI 4/4/2022 4:21:21 PM,2,Ready
-ocmw_hechteleksel-02- BATCH 7315 4/4/2022 4:23:29 PM,1,Ready
-stad_borgloon-MULTI- BATCH 58044,1,Ready
-ocmw_borsbeek-01- BATCH 8029922,4,Ready
-gem_borsbeek-01- BATCH 8029925,5,Ready
-gem_turnhout-04- BATCH 7374368,20,Ready
-gem_turnhout-04- BATCH 7374370,20,Ready
-gem_turnhout-04- BATCH 7374372,1,Ready
-zorg_rivierenland-04- BATCH 7374,6,Ready
-comp_oudenaarde-MULTI- BATCH 367,1,Ready
-gem_hechteleksel-02- BATCH 73156,5,Ready
-gem_zonhoven-05- BATCH 5294347,1,Ready
-BATCH 3539465,2,Ready
-prov_limburg-03- BATCH 8800094,8,Ready
-gem_asse-MULTI- BATCH 5804621,5,Ready
-gem_bierbeek-MULTI- BATCH 580462,9,Ready
-gem_brakel-MULTI- BATCH 5804626,2,Ready
-gem_bredene-MULTI- BATCH 5804628,2,Ready
+BATCH 2639038,1,Ready
+BATCH 2501523,1,Ready
+BATCH 2639352,2,Ready
+gem_wortegem_petegem-MULTI- BATC 4/4/2022 8:15:47 AM,6,Ready
+pol_carma-04- BATCH 7368702,25,Ready
+pol_leuven-04- BATCH 7369118,1,Ready
+gem_kalmthout-MULTI- BATCH 56051,9,Ready
+gem_kasterlee-03- BATCH 8800298,2,Ready
+agb_oostkamp-03- BATCH 8800300,1,Ready
+gem_bornem-MULTI- BATCH 5804720,2,Ready
+gem_gooik-MULTI- BATCH 4823264,2,Ready
+BATCH 2269722,1,Ready
+gem_kapellen-03- BATCH 8800767,1,Ready
+pol_grens-04- BATCH 7375181,1,Ready
+pol_turnhout-04- BATCH 7375183,6,Ready
+ocmw_depinte-MULTI- BATCH 580536,5,Ready
+ocmw_tielt-MULTI- BATCH 3617718,7,Ready
+comp_oostrozebeke-MULTI- BATCH 3 4/4/2022 5:19:32 PM,1,Ready
+zorg_houthalen-02- BATCH 7316373,1,Ready
+gem_kinrooi-MULTI- BATCH 5605463,1,Ready
+ocmw_kinrooi-MULTI- BATCH 560548,4,Ready
+gem_wevelgem-MULTI- BATCH 348954,7,Ready
+BATCH 8600719,3,Ready
+zorg_rivierenland-04- BATCH 7375,10,Ready
+gem_ranst-04- BATCH 7375258,1,Ready
+gem_maldegem-MULTI- BATCH 560555,1,Ready
+gem_zulte-MULTI- BATCH 3489573,11,Ready
+gem_oudenburg-MULTI- BATCH 36765,1,Ready
+ocmw_oudenaarde-MULTI- BATCH 367,1,Ready
+agb_gooik-MULTI- BATCH 4823336,7,Ready
+gem_gooik-MULTI- BATCH 4823338,2,Ready
+agb_tienen-MULTI- BATCH 3617794,10,Ready
+ocmw_sint_genesius_rode-MULTI- B 4/4/2022 5:32:16 PM,1,Ready
+gem_wevelgem-MULTI- BATCH 348959,1,Ready
+BATCH 2770438,6,Ready
+BATCH 8600847,2,Ready
+BATCH 2269836,1,Ready
+BATCH 2269838,1,Ready
+BATCH 2269840,1,Ready
+BATCH 2269842,1,Ready
+BATCH 2269844,1,Ready
+BATCH 2269846,1,Ready
+BATCH 2269848,1,Ready
+BATCH 2269850,1,Ready
+BATCH 2269852,1,Ready
+BATCH 2269854,1,Ready
+BATCH 2269856,1,Ready
+BATCH 2269858,1,Ready
+stad_leuven-03- BATCH 8800869,1,Ready
+gem_tessenderlo-04- BATCH 737529,3,Ready
+gem_begijnendijk-MULTI- BATCH 58 4/4/2022 5:37:32 PM,2,Ready
+gem_kruisem-MULTI- BATCH 5605655,1,Ready
+gem_merksplas-MULTI- BATCH 56056,1,Ready
+gem_brasschaat-01- BATCH 8030444,3,Ready
+ocmw_oostkamp-03- BATCH 8800915,2,Ready
