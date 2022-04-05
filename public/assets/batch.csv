@@ -1,14 +1,12 @@
 batch,document,status
-BATCH 1610547,1,Ready
-BATCH 1610549,1,Ready
-BATCH 3454505,1,Ready
-BATCH 3189215,4,Ready
-BATCH 3454532,1,Ready
-BATCH 465717,1,Ready
 BATCH 465719,1,Ready
 BATCH 3454640,8,Ready
 BATCH 465741,1,Ready
 BATCH 2639758,1,Ready
+BATCH 3454682,10,Ready
+BATCH 663606,1,Ready
+BATCH 663608,2,Ready
+BATCH 663610,1,Ready
 stad_vilvoorde-05- BATCH 5290174,4,Ready
 ocmw_st_laureins-MULTI- BATCH 36 4/4/2022 8:52:28 AM,1,Ready
 stad_stniklaas-04- BATCH 7369298,11,Ready
@@ -23,13 +21,8 @@ hvz_zuidoost-05- BATCH 5297773,7,Ready
 ocmw_hemiksem-MULTI- BATCH 48266,3,Ready
 gem_gavere-MULTI- BATCH 4826605,2,Ready
 gem_wingene-05- BATCH 5297991,9,Ready
-gem_st_laureins-MULTI- BATCH 362,7,Ready
 ocmw_sint_genesius_rode-MULTI- B 4/5/2022 9:10:14 AM,1,Ready
-stad_tienen-MULTI- BATCH 3620161,1,Ready
 ocmw_stpietersleeuw-04- BATCH 73 4/5/2022 9:12:35 AM,2,Ready
-BATCH 64672761,7,Ready
-stad_beringen-01- BATCH 8035641,1,Ready
-stad_beringen-01- BATCH 8035656,1,Ready
 stad_beringen-01- BATCH 8035661,1,Ready
 gem_boom-01- BATCH 8035667,2,Ready
 agb_beerse-01- BATCH 8035675,1,Ready
@@ -74,3 +67,9 @@ ocmw_hasselt-02- BATCH 7321525,1,Ready
 stad_hasselt-02- BATCH 7321527,7,Ready
 BATCH 2271420,1,Ready
 BATCH 2271422,1,Ready
+BATCH 2271424,1,Ready
+gem_lille-MULTI- BATCH 5610587,12,Ready
+ocmw_maldegem-MULTI- BATCH 56105,1,Ready
+gem_lichtervelde-MULTI- BATCH 56 4/5/2022 9:22:16 AM,1,Ready
+gem_kinrooi-MULTI- BATCH 5610593,6,Ready
+gem_maldegem-MULTI- BATCH 561059,4,Ready
