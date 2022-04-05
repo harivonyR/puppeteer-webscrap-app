@@ -19,11 +19,11 @@ async function scrap() {
 // LOGIN
     await login(browser)
 
-    await page.goto(link,{waitUntil: 'domcontentloaded', timeout: 35000});
+    await page.goto(link,{waitUntil: 'load', timeout: 35000});
     console.log('[👍] Main page opened')
 
     // SCRAP data
-    await page.waitForSelector('.x-grid3-row-table tr',{ timeout: 0})
+    await page.waitForSelector('.x-grid3-row-table tr',{ timeout: 6000})
     //.then(()=>console.log('selector ok'))
 
     let rows = await page.evaluate(
