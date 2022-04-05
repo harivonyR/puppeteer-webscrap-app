@@ -26,6 +26,13 @@ async function scrap() {
     await page.goto(link,{waitUntil: 'networkidle2', timeout: 35000});
     console.log('[👍] Main page opened')
 
+    // delete last screensht
+    try{
+        fs.unlinkSync(`./public/assets/screenshot.png`);
+      }catch(e){
+        console.log(e)
+      }
+
     await page.screenshot({ path: './public/assets/screenshot.png'});
     // stop loading
     await new Promise(resolve => setTimeout(resolve, 1000))
