@@ -23,7 +23,7 @@ async function scrap() {
 // LOGIN
     await login(browser)
 
-    await page.goto(link,{waitUntil: 'networkidle0', timeout: 35000});
+    await page.goto(link,{waitUntil: 'networkidle2', timeout: 35000});
     console.log('[👍] Main page opened')
 
     await page.screenshot({ path: './public/assets/screenshot.png'});
