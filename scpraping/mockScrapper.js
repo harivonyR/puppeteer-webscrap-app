@@ -10,7 +10,8 @@ async function scrap() {
 // RUN puppeteer
     const browser = await puppeteer.launch({
         headless: true,
-        args: ["--no-sandbox", "--disable-setuid-sandbox"]
+        args: ["--no-sandbox", "--disable-setuid-sandbox"],
+        slowMo: 1000
     });
     console.log('[👍] browser .. ');
 
@@ -25,7 +26,7 @@ async function scrap() {
 
     // SCRAP data
     sleep(5000)
-    await page.waitForSelector('.x-grid3-row-table',{visible:true,timeout: 10000})
+    await page.waitForSelector('.x-grid3-row-table',{visible:true,timeout: 0})
         .then(()=>console.log('selector ok'))
 
     let rows = await page.evaluate(
