@@ -41,7 +41,7 @@ const server = app.listen(process.env.PORT || PORT, () => {
     const port = server.address().port;
     console.log(`Express is working on port ${port}`);
     logger.info(`Express is working on port ${port}`);
-  });
+});
 
 
 // node.js version with stable puppeeter

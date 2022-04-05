@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer');
 const login = require('./user');
 const {saveToCsv,csvToXls} = require('./file');
+const sleep = require('./helper');
 
 // DATA
 let link = 'https://service.europe.arco.biz/ktmthinclient/Validation.aspx';
@@ -19,7 +20,7 @@ async function scrap() {
 // LOGIN
     await login(browser)
 
-    await page.goto(link,{waitUntil: 'load', timeout: 35000});
+    await page.goto(link,{waitUntil: 'networkidle0', timeout: 35000});
     console.log('[👍] Main page opened')
     
     // manual page stop
@@ -31,12 +32,18 @@ async function scrap() {
     //             console.log(error)
     //         })
 
-    // SCRAP data
-    console.log('[-] Waiting for selector')
+    page.on("request", request => {
+        if (request.resourceType() === "script"){
+          request.abort()
+        } else {
+          request.continue()
+        }
+      })
     
-    await page.waitForSelector('.x-grid3-row-table tr',{timeout:6000})
+    console.log('script stopped')
     
-    //.then(()=>console.log('selector ok'))
+    await page.waitForSelector('.x-grid3-row-table',{visible:true,timeout: 0})
+        .then(()=>console.log('Selector ok'))
 
     let rows = await page.evaluate(
             ()=> Array.from(window.document.querySelectorAll('.x-grid3-row-table tr'))
