@@ -20,11 +20,11 @@ app.use(express.static('public'));
 
 app.get('/',  (req, res)=> {
     res.render('index', {})
-    fillRows()
+    //fillRows()
 });
 
 app.get('/data',async (req,res)=>{
-    //rows = await mockScrapper.scrap()   // ISSUE, timoeout request erro 503 on heroku server
+    rows = await mockScrapper.scrap()   // ISSUE, timoeout request erro 503 on heroku server
     res.render('data', {rows : rows})
 })
 
