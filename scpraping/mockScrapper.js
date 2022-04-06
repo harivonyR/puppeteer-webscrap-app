@@ -57,21 +57,12 @@ async function scrap(){
     }
 
     await page.screenshot({ path: './public/assets/login.png'});
-/////////////// END LOGIN
 
+/////////////// END LOGIN
     sleep(5000)
     //await page.goto(link,{waitUntil: 'networkidle2', timeout: 35000});
     console.log('[👍] Main page opened')
     
-    // manual page stop
-    // await new Promise(resolve => setTimeout(resolve, 20000))
-    //         .then(()=>{
-    //             page._client.send("Page.stopLoading");
-    //             console.log('[x] Page loading stopped');
-    //         }).catch((error)=>{
-    //             console.log(error)
-    //         })
-
     // delete last screensht
     try{
         fs.unlinkSync(`./public/assets/screenshot.png`)
@@ -82,32 +73,15 @@ async function scrap(){
     sleep(3000)
     await page.screenshot({ path: './public/assets/screenshot.png'});
     
-    // stop loading
-//    await new Promise(resolve => setTimeout(resolve, 1000))
-//            .then(()=>{
-//                page._client.send("Page.stopLoading");
-//                console.log('[👍] Page stopped');
-//            })
-//            .catch((e)=>{console.log('ERR'+e)})
-    
-    // Block running script
-//    page.on("request", request => {
-//        if (request.resourceType() === "script"){
-//          request.abort()
-//        } else {
-//          request.continue()
-//        }
-//      })
-//    console.log('script stopped')
-    
     // Wait for selector
     await page.waitForSelector('.x-grid3-row-table tr',{visible:true,timeout: 0})
         .then(()=>console.log('Selector ok'))
 
     let rows = await page.evaluate(
             ()=> Array.from(window.document.querySelectorAll('.x-grid3-row-table tr'))
-            .map((row)=>{
+            .map((row,i)=>{
                 let data = {
+                    index : i,
                     batch : row.querySelector('div.x-grid3-col-name').innerText,
                     document : row.querySelector('div.x-grid3-col-6').innerText,
                     status : row.querySelector('div.x-grid3-col-status').innerText
