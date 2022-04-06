@@ -24,9 +24,9 @@ async function login (browser){
     
     try{
         fs.unlinkSync(`./public/assets/login.png`);
-      }catch(e){
+    }catch(e){
         console.log(e)
-      }
+    }
 
     await loginPage.screenshot({ path: './public/assets/login.png'});
 }

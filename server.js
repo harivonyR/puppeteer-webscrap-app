@@ -1,7 +1,6 @@
 const express = require ("express");
 const app = express();
 const path = require ("path")
-const logger = require('heroku-logger')
 const fs = require ('fs');
 
 const sleep = require("./scpraping/helper");
@@ -42,6 +41,14 @@ app.get('/download', async (req,res)=>{
     res.download('./public/assets/batch.xls'); 
  })
 
+app.get('/unlink', async (req,res)=>{
+    try{
+        fs.unlinkSync(`./public/assets/batch.xls`);
+        console.log('file deleted')
+      }catch(e){
+        console.log('unlinck failed '+e)
+    }
+ })
 // app.get('/loading',async(req,res)=>{
 //     ///let data = await sleep(5000)
 //     res.render('loading')
@@ -50,6 +57,10 @@ app.get('/download', async (req,res)=>{
 const server = app.listen(process.env.PORT || PORT, () => {
     const port = server.address().port;
     console.log(`Express is working on port ${port}`);
-    logger.info(`Express is working on port ${port}`);
 });
 
+
+// node.js version with stable puppeeter
+
+// Lambda runtime Node.js 14.x
+// Puppeteer-core version 10.1.0
