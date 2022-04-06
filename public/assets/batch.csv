@@ -1,70 +1,71 @@
 batch,document,status
-pol_ieper-04- BATCH 7384410,1,Ready
-gem_koksijde-MULTI- BATCH 561315,1,Ready
-gem_meulebeke-MULTI- BATCH 56131,2,Ready
-zorg_wervik-MULTI- BATCH 3492957,2,Ready
-gem_malle-03- BATCH 8809652,16,Ready
-BATCH 8608892,1,Ready
-gem_ranst-04- BATCH 7371616,1,Ready
-comp_oostrozebeke-MULTI- BATCH 3 4/5/2022 1:37:53 PM,1,Ready
-BATCH 483363,1,Ready
-BATCH 483377,1,Ready
-gem_ranst-04- BATCH 7384463,1,Ready
-gem_stpietersleeuw-04- BATCH 738 4/5/2022 1:43:11 PM,1,Ready
-gem_willebroek-05- BATCH 5299452,1,Ready
-ocmw_willebroek-05- BATCH 529946,19,Ready
-gem_kruisem-MULTI- BATCH 5613202,2,Ready
-gem_lennik-MULTI- BATCH 5613204,1,Ready
-ocmw_kalmthout-MULTI- BATCH 5613,1,Ready
-ocmw_kruisem-MULTI- BATCH 561321,1,Ready
-prov_limburg-03- BATCH 8809770,10,Ready
-agb_zandhoven-MULTI- BATCH 34930,1,Ready
-gem_zandhoven-MULTI- BATCH 34930,5,Ready
 ocmw_wevelgem-MULTI- BATCH 34930,2,Ready
 ocmw_westerlo-05- BATCH 5299530,1,Ready
 ocmw_maaseik-03- BATCH 8809932,1,Ready
-ocmw_lummen-03- BATCH 8809936,1,Ready
-agb_kapellen-03- BATCH 8809938,1,Ready
-ocmw_malle-03- BATCH 8809940,1,Ready
-gem_bredene-MULTI- BATCH 5811876,3,Ready
-gem_deerlijk-MULTI- BATCH 581187,1,Ready
-gem_depinte-MULTI- BATCH 5811880,6,Ready
-ocmw_asse-MULTI- BATCH 5811882,3,Ready
-ocmw_bredene-MULTI- BATCH 581188,1,Ready
-stad_maaseik-03- BATCH 8809942,4,Ready
-stad_leuven-03- BATCH 8809944,2,Ready
-agbi_maaseik-03- BATCH 8809946,1,Ready
-stad_diest-01- BATCH 8038482,1,Ready
 gem_beerse-01- BATCH 8038484,10,Ready
 stad_aarschot-01- BATCH 8038486,1,Ready
-stad_aalst-01- BATCH 8038488,1,Ready
-stad_stniklaas-04- BATCH 7384645,1,Ready
-gem_gavere-MULTI- BATCH 4828298,3,Ready
-gem_schilde-04- BATCH 7384648,2,Ready
-stad_sinttruiden-04- BATCH 73846,1,Ready
-gem_geetbets-MULTI- BATCH 482831,9,Ready
 gem_kalmthout-MULTI- BATCH 56133,1,Ready
 ocmw_lichtervelde-MULTI- BATCH 5 4/5/2022 1:55:49 PM,2,Ready
 zorg_zorgbandleieenschelde-MULTI 4/5/2022 1:55:51 PM,5,Ready
-gem_kapellen-03- BATCH 8810114,3,Ready
-prov_ovlaanderen-03- BATCH 88101,1,Ready
 ocmw_overijse-03- BATCH 8810138,1,Ready
-gem_leopoldsburg-03- BATCH 88101,7,Ready
 BATCH 483474,2,Ready
 agb_nijlen-03- BATCH 8810142,1,Ready
-zorg_noordlimburg-03- BATCH 8810,3,Ready
-BATCH 2275185,1,Ready
-gem_nijlen-03- BATCH 8810146,1,Ready
 BATCH 2275187,1,Ready
 BATCH 2275189,1,Ready
 BATCH 4977036,2,Ready
-ocmw_stniklaas-04- BATCH 7384747,3,Ready
-gem_spiere_helkijn-MULTI- BATCH 4/5/2022 1:59:51 PM,1,Ready
-gem_retie-04- BATCH 7384754,20,Ready
 pol_aarschot-04- BATCH 7384758,1,Ready
 pol_maldegem-04- BATCH 7384760,1,Ready
 gem_zoersel-05- BATCH 5293594,2,Ready
-ocmw_meulebeke-MULTI- BATCH 5613 4/5/2022 2:01:50 PM,1,Ready
 stad_borgloon-MULTI- BATCH 58119,4,Ready
 gem_merksplas-MULTI- BATCH 56133,7,Ready
 ocmw_kortessem-03- BATCH 8810160,2,Ready
+ocmw_boom-01- BATCH 8038521,1,Ready
+gem_nazareth-MULTI- BATCH 367955,1,Ready
+gem_pittem-MULTI- BATCH 3679557,1,Ready
+stad_hasselt-02- BATCH 7324448,4,Ready
+gem_gooik-MULTI- BATCH 4828387,1,Ready
+gem_herne-MULTI- BATCH 4828391,3,Ready
+ocmw_oudenburg-MULTI- BATCH 3679,13,Ready
+ocmw_puurs_sint_amands-MULTI- BA 4/5/2022 2:05:27 PM,2,Ready
+zorg_puurs_sint_amands-MULTI- BA 4/5/2022 2:05:32 PM,1,Ready
+comp_oostrozebeke-MULTI- BATCH 3,2,Ready
+gem_wemmel-MULTI- BATCH 3493084,2,Ready
+ocmw_wevelgem-MULTI- BATCH 34930 4/5/2022 2:05:46 PM,2,Ready
+zorg_wervik-MULTI- BATCH 3493089,1,Ready
+agb_vilvoorde-05- BATCH 5299663,1,Ready
+agb_asse-MULTI- BATCH 5812002,3,Ready
+agb_diepenbeek-01- BATCH 8038606,4,Ready
+BATCH 2167269,9,Ready
+stad_herentals-02- BATCH 7324573,1,Ready
+gem_diepenbeek-01- BATCH 8038611,10,Ready
+ocmw_diepenbeek-01- BATCH 803861,1,Ready
+gem_baarlehertog-01- BATCH 80386,10,Ready
+gem_malle-03- BATCH 8810417,1,Ready
+gem_ranst-04- BATCH 7384846,1,Ready
+gem_stabroek-04- BATCH 7384859,3,Ready
+gem_vosselaar-05- BATCH 5299720,2,Ready
+agb_gooik-MULTI- BATCH 4828407,2,Ready
+gem_gooik-MULTI- BATCH 4828409,4,Ready
+prov_limburg-03- BATCH 8810570,12,Ready
+BATCH 8609914,2,Ready
+ocmw_puurs_sint_amands-MULTI- BA 4/5/2022 2:15:07 PM,1,Ready
+zorg_puurs_sint_amands-MULTI- BA 4/5/2022 2:15:12 PM,2,Ready
+ocmw_tienen-MULTI- BATCH 3621517,2,Ready
+gem_koksijde-MULTI- BATCH 561343,1,Ready
+gem_meulebeke-MULTI- BATCH 56134,1,Ready
+ocmw_kinrooi-MULTI- BATCH 561344,2,Ready
+ocmw_asse-MULTI- BATCH 5812254,1,Ready
+ocmw_bonheiden-MULTI- BATCH 5812,2,Ready
+ocmw_boortmeerbeek-MULTI- BATCH,1,Ready
+stad_borgloon-MULTI- BATCH 58122,9,Ready
+ocmw_malle-03- BATCH 8810959,4,Ready
+ocmw_nieuwerkerken-03- BATCH 881,5,Ready
+gem_nieuwerkerken-03- BATCH 8810,7,Ready
+ocmw_wevelgem-MULTI- BATCH 34933,1,Ready
+zorg_waasland-MULTI- BATCH 34933,2,Ready
+stad_aalst-01- BATCH 8039276,2,Ready
+ocmw_hasselt-02- BATCH 7324743,1,Ready
+BATCH 2310909,1,Ready
+gem_tielt-MULTI- BATCH 3621585,6,Ready
+BATCH 2310911,1,Ready
+BATCH 2310913,1,Ready

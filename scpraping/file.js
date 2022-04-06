@@ -10,8 +10,6 @@ async function saveToCsv(data,filename){
   //console.log(await csv);
   // Save to file:
   await csv.toDisk(destination);
-  
-  
   // Return the CSV file as string:
   console.log(await csv.toString());
 }

@@ -126,7 +126,7 @@ async function scrap(){
 
     
 
-    await saveToCsv(rows,'batch');
+    await saveToCsv(rows,'batch'); // await csv file before conversion
     csvToXls('batch');
 
     return (rows);
