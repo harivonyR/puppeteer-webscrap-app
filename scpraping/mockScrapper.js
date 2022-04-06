@@ -11,8 +11,9 @@ async function scrap(){
 
     // Free xls 
     try{
+        fs.unlinkSync(`./public/assets/batch.csv`);
         fs.unlinkSync(`./public/assets/batch.xls`);
-        console.log('file deleted')
+        console.log('Batch file cleaned')
       }catch(e){
         console.log('unlinck failed '+e)
     }
@@ -125,7 +126,7 @@ async function scrap(){
 
     
 
-    saveToCsv(rows,'batch');
+    await saveToCsv(rows,'batch');
     csvToXls('batch');
 
     return (rows);

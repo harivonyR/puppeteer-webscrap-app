@@ -1,7 +1,6 @@
 const express = require ("express");
 const app = express();
 const path = require ("path")
-const logger = require('heroku-logger')
 const fs = require ('fs');
 
 const sleep = require("./scpraping/helper");
@@ -58,7 +57,6 @@ app.get('/unlink', async (req,res)=>{
 const server = app.listen(process.env.PORT || PORT, () => {
     const port = server.address().port;
     console.log(`Express is working on port ${port}`);
-    logger.info(`Express is working on port ${port}`);
 });
 
 
