@@ -7,7 +7,16 @@ const fs = require ('fs')
 // DATA
 let link = 'https://service.europe.arco.biz/ktmthinclient/Validation.aspx';
 
-async function scrap() {
+async function scrap(){
+
+    // Free xls 
+    try{
+        fs.unlinkSync(`./public/assets/batch.xls`);
+        console.log('file deleted')
+      }catch(e){
+        console.log('unlinck failed '+e)
+    }
+
 // RUN puppeteer
     const browser = await puppeteer.launch({
         ignoreHTTPSErrors: true,
@@ -36,8 +45,8 @@ async function scrap() {
     await page.waitForSelector('#userPassword')
     await page.type('#userPassword','M3rckx',{delai:50});
     await page.keyboard.press('Enter');
+    
     sleep(5000)
-
     console.log('[👍] Login Done ! ');
 
     try{
@@ -47,8 +56,6 @@ async function scrap() {
     }
 
     await page.screenshot({ path: './public/assets/login.png'});
-    
-
 /////////////// END LOGIN
 
     sleep(5000)
@@ -113,9 +120,11 @@ async function scrap() {
     
     // Filter data
     rows = rows.filter((e)=>e.status=="Ready")
+    console.log("Total file scraped "+rows.length)
     console.log(rows);
 
-    // Save 
+    
+
     saveToCsv(rows,'batch');
     csvToXls('batch');
 

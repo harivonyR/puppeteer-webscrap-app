@@ -42,6 +42,14 @@ app.get('/download', async (req,res)=>{
     res.download('./public/assets/batch.xls'); 
  })
 
+app.get('/unlink', async (req,res)=>{
+    try{
+        fs.unlinkSync(`./public/assets/batch.xls`);
+        console.log('file deleted')
+      }catch(e){
+        console.log('unlinck failed '+e)
+    }
+ })
 // app.get('/loading',async(req,res)=>{
 //     ///let data = await sleep(5000)
 //     res.render('loading')
