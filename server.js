@@ -3,7 +3,8 @@ const app = express();
 const path = require ("path")
 const fs = require ('fs');
 const {emiter} = require('./event/EventEmmiter');
-const {scrap} = require ('./scpraping/mockScrapper')
+const {scrap} = require ('./scpraping/mockScrapper');
+const sleep = require("./scpraping/helper");
 
 const PORT = process.env.PORT || 8080;
 
@@ -21,41 +22,30 @@ var scapStatus = {
     onScrap : false,
 }
 
-function checkOnScrap(scapStatus){
-    if (scapStatus.onScrap===false){
-        clearInterval(interval)
-        console.log('We heard scrap is now off')
-    }
-}
-
-async function waitForScrap(scapStatus){
-    // var interval = setInterval(checkOnScrap(scapStatus),1000)
+async function waitForScrap(scapStatus){       // wait scraping to be done
     (function listen(){
         setTimeout(
             ()=>{
-                if(scapStatus.status===true){
-                    listen
-                }
-                else
-                    return
+                if(scapStatus.status===true) listen
+                else return
             }
-        ,1000)
+        ,2000)
     })
 }
 
 async function handleScraping(req,res,status){
-    if (status.onScrap===false&&status.data===false){
+    if (status.onScrap===false&&status.data===false){   // no scraping on, so start it
         status.onScrap = true;
             console.log('Scrap on')                              
         
-        let data = await scrap()
-            status.onScrap = false;
-            console.log('Scrap off')
+        let data = await scrap()   
+            console.log('Scrap end')
 
         return data
     }
-    if (status.onScrap===true){
-        waitForScrap(scapStatus)
+    if (status.onScrap===true){         // wait for scraping to be done
+        await waitForScrap(scapStatus)
+            sleep(10000)
         return data.rows
     }
     else
@@ -67,17 +57,22 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.get('/',  (req, res)=>{
-    res.render('index', {rows : data.rows})
+    if(data.rows.length>0)
+        res.render('data', {rows : data.rows})
+    else
+        res.render('index')
 });
 
 app.get('/data',async (req,res)=>{
     data.rows = await handleScraping(req,res,scapStatus)
-    //data.rows = await scrap()
-    res.render('data', {rows :  data.rows})
+    await res.render('data', {rows :  data.rows})
+    scapStatus.status = false
+    console.log('Scrap of')
 })
 
 app.get('/download', async (req,res)=>{
-    res.download('./public/assets/batch.xls'); 
+    await waitForScrap(scapStatus)
+    res.download('./public/assets/batch.xls');
  })
 
 app.get('/event', async (req,res)=>{

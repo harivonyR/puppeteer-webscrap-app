@@ -29,4 +29,15 @@ async function csvToXls(filename){
   } 
 }
 
-module.exports = {saveToCsv,csvToXls};
+async function freeBtachFile(){
+  // Free xls 
+  try{
+    fs.unlinkSync(`./public/assets/batch.csv`);
+    fs.unlinkSync(`./public/assets/batch.xls`);
+    console.log('Batch file cleaned')
+  }catch(e){
+    console.log('unlinck failed '+e)
+}
+}
+
+module.exports = {saveToCsv,csvToXls,freeBtachFile};
