@@ -3,7 +3,7 @@ const app = express();
 const path = require ("path")
 const fs = require ('fs');
 const {emiter} = require('./event/EventEmmiter');
-const mockScrapper = require ('./scpraping/mockScrapper')
+const {scrap} = require ('./scpraping/mockScrapper')
 
 const PORT = process.env.PORT || 8080;
 
@@ -21,15 +21,44 @@ var scapStatus = {
     onScrap : false,
 }
 
-async function handleScraping(req,res,status,data){
+function checkOnScrap(scapStatus){
+    if (scapStatus.onScrap===false){
+        clearInterval(interval)
+        console.log('We heard scrap is now off')
+    }
+}
+
+async function waitForScrap(scapStatus){
+    // var interval = setInterval(checkOnScrap(scapStatus),1000)
+    (function listen(){
+        setTimeout(
+            ()=>{
+                if(scapStatus.status===true){
+                    listen
+                }
+                else
+                    return
+            }
+        ,1000)
+    })
+}
+
+async function handleScraping(req,res,status){
     if (status.onScrap===false&&status.data===false){
         status.onScrap = true;
-        console.log('Scrap on')                              
-        data.rows = await mockScrapper.scrap()
-            .then(()=>{status.onScrap = false; console.log('scrap off')})
-            .catch((e)=>console.log(e))
+            console.log('Scrap on')                              
+        
+        let data = await scrap()
+            status.onScrap = false;
+            console.log('Scrap off')
+
+        return data
     }
-    else 
+    if (status.onScrap===true){
+        waitForScrap(scapStatus)
+        return data.rows
+    }
+    else
         res.send('ERROR : handling event scrap && data')  
 }
 
@@ -38,18 +67,13 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.get('/',  (req, res)=>{
-    if(data.rows.length>0){
-        res.render('data', {rows : data.rows})
-    }
-    else{
-        res.render('index', {})
-    }
+    res.render('index', {rows : data.rows})
 });
 
 app.get('/data',async (req,res)=>{
-    await handleScraping(req,res,scapStatus,data)
-        .then(()=>res.render('data', {rows : data.rows}))
-        .catch((e)=>console.log(e))
+    data.rows = await handleScraping(req,res,scapStatus)
+    //data.rows = await scrap()
+    res.render('data', {rows :  data.rows})
 })
 
 app.get('/download', async (req,res)=>{
