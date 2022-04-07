@@ -51,7 +51,7 @@ async function scrap(){
             ()=> Array.from(window.document.querySelectorAll('.x-grid3-row-table tr'))
             .map((row,i)=>{
                 let data = {
-                    index : i,
+                    index : i+1,
                     batch : row.querySelector('div.x-grid3-col-name').innerText,
                     document : row.querySelector('div.x-grid3-col-6').innerText,
                     status : row.querySelector('div.x-grid3-col-status').innerText
