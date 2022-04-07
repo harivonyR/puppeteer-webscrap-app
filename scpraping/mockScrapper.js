@@ -1,8 +1,10 @@
 const puppeteer = require('puppeteer');
 //const login = require('./user');
 const {saveToCsv,csvToXls,freeBtachFile} = require('./file');
+const {login} = require('./pageCheck')
 const sleep = require('./helper');
-const fs = require ('fs')
+const fs = require ('fs');
+// const login = require('./user');
 
 // DATA
 let link = 'https://service.europe.arco.biz/ktmthinclient/Validation.aspx';
@@ -21,30 +23,7 @@ async function scrap(){
     console.log('[👍] new page created  ..');
 
 //////////// BEGIN LOGIN
-    console.log('[👍] login browser ');
-
-    //const page = await browser.newPage();
-    console.log('[👍] login page is openning ');
-
-    await page.goto('https://service.europe.arco.biz/ktmthinclient/ValidationLogin.aspx')
-    console.log('[👍] login page opened !');
-
-    //await sleep(4000)
-    await page.waitForSelector('#userName')
-    await page.type('#userName','SENMAU62',{delai:50});
-    //await sleep(3000)
-    await page.waitForSelector('#userPassword')
-    await page.type('#userPassword','M3rckx',{delai:50});
-    await page.keyboard.press('Enter');
-    
-    sleep(5000)
-    console.log('[👍] Login Done ! ');
-
-    try{
-        fs.unlinkSync(`./public/assets/login.png`);
-    }catch(e){
-        console.log(e)
-    }
+    await login(page)
 
     await page.screenshot({ path: './public/assets/login.png'});
 
