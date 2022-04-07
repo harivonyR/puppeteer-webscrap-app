@@ -3,25 +3,23 @@ const app = express();
 const path = require ("path")
 const fs = require ('fs');
 
-const sleep = require("./scpraping/helper");
 const mockScrapper = require ('./scpraping/mockScrapper')
 
 const PORT = process.env.PORT || 8080;
 var rows = []
 
-async function fillRows(){
-    rows = await mockScrapper.scrap()
-}
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-app.get('/',  (req, res)=> {
-    res.render('index', {})
-    //fillRows()
+app.get('/',  (req, res)=>{
+    if(rows.length>0){
+        res.render('data', {rows : rows})
+    }
+    else{
+        res.render('index', {})
+    }
 });
-
 
 
 app.get('/data',async (req,res)=>{
