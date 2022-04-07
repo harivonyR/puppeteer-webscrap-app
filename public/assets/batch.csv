@@ -1,68 +1,39 @@
 index,batch,document,status
-1,BATCH 548145,1,Ready
-33,ocmw_puurs_sint_amands-MULTI- BA 4/5/2022 2:15:07 PM,1,Ready
-34,zorg_puurs_sint_amands-MULTI- BA 4/5/2022 2:15:12 PM,2,Ready
-36,ocmw_wevelgem-MULTI- BATCH 34933,1,Ready
-37,ocmw_hasselt-02- BATCH 7324743,1,Ready
-38,BATCH 2310919,1,Ready
-39,gem_stkatwaver-04- BATCH 7385210,16,Ready
-40,pol_lommel-03- BATCH 8811081,1,Ready
-41,gem_leopoldsburg-03- BATCH 88110,2,Ready
-42,gem_gavere-MULTI- BATCH 4828880,1,Ready
-43,gem_gooik-MULTI- BATCH 4828902,2,Ready
-44,ocmw_lennik-MULTI- BATCH 5613587,3,Ready
-45,ocmw_lichtervelde-MULTI- BATCH 5 4/5/2022 2:29:31 PM,1,Ready
-46,gem_kinrooi-MULTI- BATCH 5613591,3,Ready
-47,gem_koksijde-MULTI- BATCH 561359,5,Ready
-48,gem_meulebeke-MULTI- BATCH 56135,1,Ready
-49,stad_hasselt-02- BATCH 7324833,3,Ready
-50,gem_nazareth-MULTI- BATCH 367980,1,Ready
-51,gem_oudenburg-MULTI- BATCH 36798,2,Ready
-52,gem_puurs_sint_amands-MULTI- BAT 4/5/2022 2:32:09 PM,2,Ready
-53,ocmw_puurs_sint_amands-MULTI- BA 4/5/2022 2:32:13 PM,1,Ready
-54,gem_herne-MULTI- BATCH 4828947,2,Ready
-55,zorg_puurs_sint_amands-MULTI- BA 4/5/2022 2:32:21 PM,3,Ready
-56,BATCH 484528,1,Ready
-57,BATCH 484530,1,Ready
-58,agb_vilvoorde-05- BATCH 5300186,1,Ready
-59,gem_affligem-MULTI- BATCH 581249,13,Ready
-60,ocmw_damme-MULTI- BATCH 5812507,2,Ready
-61,gem_overijse-03- BATCH 8811113,2,Ready
-62,gem_wemmel-MULTI- BATCH 3493450,1,Ready
-63,gem_wevelgem-MULTI- BATCH 349345,1,Ready
-64,gem_zwalm-MULTI- BATCH 3493454,1,Ready
-65,stad_zoutleeuw-MULTI- BATCH 3493,2,Ready
-66,zorg_waasland-MULTI- BATCH 34934,1,Ready
-67,gem_heers-02- BATCH 7324905,2,Ready
-68,BATCH 4977257,1,Ready
-69,zorg_vilvoorde-MULTI- BATCH 3493,1,Ready
-70,gem_brecht-01- BATCH 8039380,1,Ready
-71,gem_diepenbeek-01- BATCH 8039386,3,Ready
-72,ocmw_herne-MULTI- BATCH 4828970,1,Ready
-73,comp_oostrozebeke-MULTI- BATCH 3 4/5/2022 2:37:41 PM,2,Ready
-74,ocmw_heusden_zolder-MULTI- BATCH,2,Ready
-75,ocmw_gingelom-02- BATCH 7324909,2,Ready
-76,BATCH 2167561,20,Ready
-77,BATCH 2167565,20,Ready
-78,agb_willebroek-05- BATCH 5300246,1,Ready
-79,gem_willebroek-05- BATCH 5300248,1,Ready
-80,hvz_zuidoost-05- BATCH 5300250,8,Ready
-81,stad_sinttruiden-04- BATCH 73854,3,Ready
-82,gem_linter-MULTI- BATCH 5613869,1,Ready
-83,gem_meerhout-MULTI- BATCH 561387,12,Ready
-84,gem_asse-MULTI- BATCH 5812557,1,Ready
-85,agb_asse-MULTI- BATCH 5803306,1,Ready
-86,BATCH 4977294,2,Ready
-87,gem_grimbergen-MULTI- BATCH 4829,3,Ready
-88,gem_boom-01- BATCH 8039637,1,Ready
-89,stad_geel-02- BATCH 7324957,5,Ready
-90,prov_limburg-03- BATCH 8811315,20,Ready
-91,prov_limburg-03- BATCH 8811322,14,Ready
-92,gem_opwijk-MULTI- BATCH 3679905,1,Ready
-93,gem_dessel-01- BATCH 8039641,32,Ready
-94,ocmw_aarschot-01- BATCH 8039649,1,Ready
-95,gem_beerse-01- BATCH 8039651,1,Ready
-96,stad_diest-01- BATCH 8039653,4,Ready
-97,ocmw_tongeren-04- BATCH 7385537,4,Ready
-98,ocmw_westerlo-05- BATCH 5300270,4,Ready
-99,gem_stkatwaver-04- BATCH 7385539,1,Ready
+0,BATCH 2225728,2,Ready
+21,agbm_houthalen-02- BATCH 7334535,1,Ready
+24,stad_aalst-01- BATCH 8051755,1,Ready
+26,hvz_noordlimburg-03- BATCH 88245,18,Ready
+27,pol_turnhout-04- BATCH 7397732,2,Ready
+30,BATCH 8642973,3,Ready
+31,stad_hasselt-02- BATCH 7336155,20,Ready
+32,ocmw_oostrozebeke-MULTI- BATCH 3 4/6/2022 5:56:39 PM,1,Ready
+33,agbp_sinttruiden-04- BATCH 73981,1,Ready
+34,gem_maldegem-MULTI- BATCH 562556,11,Ready
+35,stad_hasselt-02- BATCH 7336337,20,Ready
+36,BATCH 2776648,10,Ready
+37,gem_wevelgem-MULTI- BATCH 349974,3,Ready
+38,ocmw_hechteleksel-02- BATCH 7336,1,Ready
+39,ocmw_lummen-03- BATCH 8825695,1,Ready
+40,BATCH 3353259,20,Ready
+41,BATCH 3353261,9,Ready
+42,BATCH 3353270,14,Ready
+43,BATCH 2776945,10,Ready
+44,gem_wuustwezel-05- BATCH 5308500,1,Ready
+45,gem_willebroek-05- BATCH 5308502,1,Ready
+46,BATCH 2776969,2,Ready
+47,BATCH 8643494,2,Ready
+48,BATCH 8643555,3,Ready
+49,BATCH 8643592,3,Ready
+50,gem_hechteleksel-02- BATCH 73371,1,Ready
+51,BATCH 8643631,6,Ready
+52,BATCH 8643654,2,Ready
+53,BATCH 8643681,4,Ready
+54,BATCH 8643710,1,Ready
+55,gem_riemst-04- BATCH 7399570,1,Ready
+56,agbs_houthalen-02- BATCH 7337737,4,Ready
+57,gem_houthalen-02- BATCH 7337773,9,Ready
+58,stad_geel-02- BATCH 7339324,11,Ready
+59,pol_lommel-03- BATCH 8828905,2,Ready
+60,ocmw_heistopdenberg-02- BATCH 73,7,Ready
+61,ocmw_boom-01- BATCH 8056667,1,Ready
+62,comp_mechelen-03- BATCH 8829023,18,Ready

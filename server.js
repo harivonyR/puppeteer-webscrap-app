@@ -2,7 +2,7 @@ const express = require ("express");
 const app = express();
 const path = require ("path")
 const fs = require ('fs');
-
+const {emiter} = require('./event/EventEmmiter');
 const mockScrapper = require ('./scpraping/mockScrapper')
 
 const PORT = process.env.PORT || 8080;
@@ -21,36 +21,42 @@ app.get('/',  (req, res)=>{
     }
 });
 
-
 app.get('/data',async (req,res)=>{
     rows = await mockScrapper.scrap()   // ISSUE, timoeout request erro 503 on heroku server
     res.render('data', {rows : rows})
 })
 
-app.get('/screenshot_main', async (req,res)=>{
-    res.download('./public/assets/screenshot.png'); 
- })
-
- app.get('/screenshot_login', async (req,res)=>{
-    res.download('./public/assets/login.png'); 
- })
-
 app.get('/download', async (req,res)=>{
     res.download('./public/assets/batch.xls'); 
  })
 
-app.get('/unlink', async (req,res)=>{
-    try{
-        fs.unlinkSync(`./public/assets/batch.xls`);
-        console.log('file deleted')
-      }catch(e){
-        console.log('unlinck failed '+e)
-    }
+app.get('/event', async (req,res)=>{
+    emiter.emit('scrapOn')
+    res.render('event')
  })
+
+// app.get('/screenshot_main', async (req,res)=>{
+//     res.download('./public/assets/screenshot.png'); 
+//  })
+
+//  app.get('/screenshot_login', async (req,res)=>{
+//     res.download('./public/assets/login.png'); 
+//  })
+
+// app.get('/unlink', async (req,res)=>{
+//     try{
+//         fs.unlinkSync(`./public/assets/batch.xls`);
+//         console.log('file deleted')
+//       }catch(e){
+//         console.log('unlinck failed '+e)
+//     }
+//  })
 // app.get('/loading',async(req,res)=>{
 //     ///let data = await sleep(5000)
 //     res.render('loading')
 // })
+
+
 
 const server = app.listen(process.env.PORT || PORT, () => {
     const port = server.address().port;
