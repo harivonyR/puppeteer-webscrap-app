@@ -9,12 +9,14 @@ const sleep = require("./scpraping/helper");
 const PORT = process.env.PORT || 8080;
 
 var data = {
-    rows : [{
-        index:2,
-        batch:'Batch tesssst',
-        document:1000,
-        status:'Ready'
-    }]
+    rows : [
+    //     {
+    //     index:2,
+    //     batch:'Batch tesssst',
+    //     document:1000,
+    //     status:'Ready'
+    // }
+]
 }
 
 var scapStatus = {
@@ -34,7 +36,7 @@ async function waitForScrap(scapStatus){       // wait scraping to be done
 }
 
 async function handleScraping(req,res,status){
-    if (status.onScrap===false&&status.data===false){   // no scraping on, so start it
+    if (status.onScrap===false){   // no scraping on, so start it
         status.onScrap = true;
             console.log('Scrap on')                              
         
@@ -45,7 +47,7 @@ async function handleScraping(req,res,status){
     }
     if (status.onScrap===true){         // wait for scraping to be done
         await waitForScrap(scapStatus)
-            sleep(10000)
+        await sleep(10000)
         return data.rows
     }
     else
@@ -65,14 +67,16 @@ app.get('/',  (req, res)=>{
 
 app.get('/data',async (req,res)=>{
     data.rows = await handleScraping(req,res,scapStatus)
-    await res.render('data', {rows :  data.rows})
-    scapStatus.status = false
-    console.log('Scrap of')
+    res.render('data', {rows :  data.rows})
+        scapStatus.status = false   // okkk simultanee
+        scapStatus.onScrap = false
+    console.log('Scrap off :: data rendered')
 })
 
 app.get('/download', async (req,res)=>{
     await waitForScrap(scapStatus)
-    res.download('./public/assets/batch.xls');
+    try {res.download('./public/assets/batch.xls');}
+    catch (e){console.log('Download error ::'+e)}
  })
 
 app.get('/event', async (req,res)=>{
@@ -100,8 +104,6 @@ app.get('/event', async (req,res)=>{
 //     ///let data = await sleep(5000)
 //     res.render('loading')
 // })
-
-
 
 const server = app.listen(process.env.PORT || PORT, () => {
     const port = server.address().port;
