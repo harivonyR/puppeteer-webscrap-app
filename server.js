@@ -73,7 +73,8 @@ app.get('/data',async (req,res)=>{
 
 app.get('/download', async (req,res)=>{
     await waitForScrap(scapStatus)
-    res.download('./public/assets/batch.xls');
+    try {res.download('./public/assets/batch.xls');}
+    catch (e){console.log('Download error ::'+e)}
  })
 
 app.get('/event', async (req,res)=>{
@@ -101,8 +102,6 @@ app.get('/event', async (req,res)=>{
 //     ///let data = await sleep(5000)
 //     res.render('loading')
 // })
-
-
 
 const server = app.listen(process.env.PORT || PORT, () => {
     const port = server.address().port;

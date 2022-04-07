@@ -1,9 +1,10 @@
 const puppeteer = require('puppeteer');
 //const login = require('./user');
 const {saveToCsv,csvToXls,freeBtachFile} = require('./file');
-const {login} = require('./pageCheck')
+const {handleLogin,login} = require('./pageCheck')
 const sleep = require('./helper');
 const fs = require ('fs');
+//const login = require('./user');
 // const login = require('./user');
 
 // DATA
@@ -23,8 +24,8 @@ async function scrap(){
     console.log('[👍] new page created  ..');
 
 //////////// BEGIN LOGIN
+    //await handleLogin(page)
     await login(page)
-
     await page.screenshot({ path: './public/assets/login.png'});
 
 /////////////// END LOGIN
