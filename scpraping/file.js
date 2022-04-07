@@ -11,7 +11,8 @@ async function saveToCsv(data,filename){
   // Save to file:
   await csv.toDisk(destination);
   // Return the CSV file as string:
-  console.log(await csv.toString());
+  //console.log(await csv.toString());
+  console.log('[I] CSV saved ')
 }
 
 /* Convert the actual csv to xls*/

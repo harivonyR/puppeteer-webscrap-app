@@ -2,55 +2,111 @@ const express = require ("express");
 const app = express();
 const path = require ("path")
 const fs = require ('fs');
-
-const mockScrapper = require ('./scpraping/mockScrapper')
+const {emiter} = require('./event/EventEmmiter');
+const {scrap} = require ('./scpraping/mockScrapper')
 
 const PORT = process.env.PORT || 8080;
-var rows = []
+
+var data = {
+    rows : [{
+        index:2,
+        batch:'Batch tesssst',
+        document:1000,
+        status:'Ready'
+    }]
+}
+
+var scapStatus = {
+    data : false,
+    onScrap : false,
+}
+
+function checkOnScrap(scapStatus){
+    if (scapStatus.onScrap===false){
+        clearInterval(interval)
+        console.log('We heard scrap is now off')
+    }
+}
+
+async function waitForScrap(scapStatus){
+    // var interval = setInterval(checkOnScrap(scapStatus),1000)
+    (function listen(){
+        setTimeout(
+            ()=>{
+                if(scapStatus.status===true){
+                    listen
+                }
+                else
+                    return
+            }
+        ,1000)
+    })
+}
+
+async function handleScraping(req,res,status){
+    if (status.onScrap===false&&status.data===false){
+        status.onScrap = true;
+            console.log('Scrap on')                              
+        
+        let data = await scrap()
+            status.onScrap = false;
+            console.log('Scrap off')
+
+        return data
+    }
+    if (status.onScrap===true){
+        waitForScrap(scapStatus)
+        return data.rows
+    }
+    else
+        res.send('ERROR : handling event scrap && data')  
+}
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.get('/',  (req, res)=>{
-    if(rows.length>0){
-        res.render('data', {rows : rows})
-    }
-    else{
-        res.render('index', {})
-    }
+    res.render('index', {rows : data.rows})
 });
 
-
 app.get('/data',async (req,res)=>{
-    rows = await mockScrapper.scrap()   // ISSUE, timoeout request erro 503 on heroku server
-    res.render('data', {rows : rows})
+    data.rows = await handleScraping(req,res,scapStatus)
+    //data.rows = await scrap()
+    res.render('data', {rows :  data.rows})
 })
-
-app.get('/screenshot_main', async (req,res)=>{
-    res.download('./public/assets/screenshot.png'); 
- })
-
- app.get('/screenshot_login', async (req,res)=>{
-    res.download('./public/assets/login.png'); 
- })
 
 app.get('/download', async (req,res)=>{
     res.download('./public/assets/batch.xls'); 
  })
 
-app.get('/unlink', async (req,res)=>{
-    try{
-        fs.unlinkSync(`./public/assets/batch.xls`);
-        console.log('file deleted')
-      }catch(e){
-        console.log('unlinck failed '+e)
-    }
+app.get('/event', async (req,res)=>{
+    emiter.emit('scrapOn')
+    res.render('event')
  })
+
+// app.get('/screenshot_main', async (req,res)=>{
+//     res.download('./public/assets/screenshot.png'); 
+//  })
+
+//  app.get('/screenshot_login', async (req,res)=>{
+//     res.download('./public/assets/login.png'); 
+//  })
+
+// app.get('/unlink', async (req,res)=>{
+//     try{
+//         fs.unlinkSync(`./public/assets/batch.xls`);
+//         console.log('file deleted')
+//       }catch(e){
+//         console.log('unlinck failed '+e)
+//     }
+//  })
 // app.get('/loading',async(req,res)=>{
 //     ///let data = await sleep(5000)
 //     res.render('loading')
 // })
+
+
 
 const server = app.listen(process.env.PORT || PORT, () => {
     const port = server.address().port;
