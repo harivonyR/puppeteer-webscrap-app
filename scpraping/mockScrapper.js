@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 //const login = require('./user');
-const {saveToCsv,csvToXls} = require('./file');
+const {saveToCsv,csvToXls,freeBtachFile} = require('./file');
 const sleep = require('./helper');
 const fs = require ('fs')
 
@@ -8,16 +8,6 @@ const fs = require ('fs')
 let link = 'https://service.europe.arco.biz/ktmthinclient/Validation.aspx';
 
 async function scrap(){
-
-    // Free xls 
-    try{
-        fs.unlinkSync(`./public/assets/batch.csv`);
-        fs.unlinkSync(`./public/assets/batch.xls`);
-        console.log('Batch file cleaned')
-      }catch(e){
-        console.log('unlinck failed '+e)
-    }
-
 // RUN puppeteer
     const browser = await puppeteer.launch({
         ignoreHTTPSErrors: true,
@@ -90,17 +80,17 @@ async function scrap(){
             })
     )
     
-    // CONCATENATE the new result
+// CONCATENATE the new result
         //res = [...res,...properties];
     
-    // Filter data
+// Filter data
     rows = rows.filter((e)=>e.status=="Ready")
     console.log("Total file scraped "+rows.length)
     console.log(rows);
 
-    
-
-    await saveToCsv(rows,'batch'); // await csv file before conversion
+// Saving file
+    await freeBtachFile()           // delete last batch file saved
+    await saveToCsv(rows,'batch');  // await csv file before conversion
     csvToXls('batch');
 
     return (rows);
