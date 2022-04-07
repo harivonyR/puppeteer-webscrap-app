@@ -26,7 +26,7 @@ async function waitForScrap(scapStatus){       // wait scraping to be done
     (function listen(){
         setTimeout(
             ()=>{
-                if(scapStatus.status===true) listen
+                if(scapStatus.onScrap===true) listen
                 else return
             }
         ,2000)
@@ -34,7 +34,8 @@ async function waitForScrap(scapStatus){       // wait scraping to be done
 }
 
 async function handleScraping(req,res,status){
-    if (status.onScrap===false&&status.data===false){   // no scraping on, so start it
+    console.log('Status in handle is :'+status.onScrap)
+    if (status.onScrap===false){   // no scraping on, so start it
         status.onScrap = true;
             console.log('Scrap on')                              
         
@@ -66,7 +67,7 @@ app.get('/',  (req, res)=>{
 app.get('/data',async (req,res)=>{
     data.rows = await handleScraping(req,res,scapStatus)
     res.render('data', {rows :  data.rows})
-        scapStatus.status = false
+    scapStatus.onScrap = false
 
     console.log('Scrap off :: data rendered')
 })

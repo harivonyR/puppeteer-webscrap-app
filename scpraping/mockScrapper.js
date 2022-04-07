@@ -72,11 +72,10 @@ async function scrap(){
     await freeBtachFile()           // delete last batch file saved
     await saveToCsv(rows,'batch');  // await csv file before conversion
     csvToXls('batch');
-
+    //await browser.close();        
     return (rows);
 
     // close the browser
-    //await browser.close();
 }
 
 module.exports = {scrap}
