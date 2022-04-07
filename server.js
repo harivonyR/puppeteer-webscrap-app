@@ -45,7 +45,7 @@ async function handleScraping(req,res,status){
     }
     if (status.onScrap===true){         // wait for scraping to be done
         await waitForScrap(scapStatus)
-            sleep(10000)
+        await sleep(10000)
         return data.rows
     }
     else
@@ -66,8 +66,9 @@ app.get('/',  (req, res)=>{
 app.get('/data',async (req,res)=>{
     data.rows = await handleScraping(req,res,scapStatus)
     await res.render('data', {rows :  data.rows})
-    scapStatus.status = false
-    console.log('Scrap of')
+        .then(()=>{scapStatus.status = false})
+
+    console.log('Scrap off :: data rendered')
 })
 
 app.get('/download', async (req,res)=>{
