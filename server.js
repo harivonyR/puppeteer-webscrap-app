@@ -6,15 +6,40 @@ const {emiter} = require('./event/EventEmmiter');
 const mockScrapper = require ('./scpraping/mockScrapper')
 
 const PORT = process.env.PORT || 8080;
-var rows = []
+
+var data = {
+    rows : [{
+        index:2,
+        batch:'Batch tesssst',
+        document:1000,
+        status:'Ready'
+    }]
+}
+
+var scapStatus = {
+    data : false,
+    onScrap : false,
+}
+
+async function handleScraping(req,res,status,data){
+    if (status.onScrap===false&&status.data===false){
+        status.onScrap = true;
+        console.log('Scrap on')                              
+        data.rows = await mockScrapper.scrap()
+            .then(()=>{status.onScrap = false; console.log('scrap off')})
+            .catch((e)=>console.log(e))
+    }
+    else 
+        res.send('ERROR : handling event scrap && data')  
+}
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.get('/',  (req, res)=>{
-    if(rows.length>0){
-        res.render('data', {rows : rows})
+    if(data.rows.length>0){
+        res.render('data', {rows : data.rows})
     }
     else{
         res.render('index', {})
@@ -22,8 +47,9 @@ app.get('/',  (req, res)=>{
 });
 
 app.get('/data',async (req,res)=>{
-    rows = await mockScrapper.scrap()   // ISSUE, timoeout request erro 503 on heroku server
-    res.render('data', {rows : rows})
+    await handleScraping(req,res,scapStatus,data)
+        .then(()=>res.render('data', {rows : data.rows}))
+        .catch((e)=>console.log(e))
 })
 
 app.get('/download', async (req,res)=>{
