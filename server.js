@@ -65,8 +65,8 @@ app.get('/',  (req, res)=>{
 
 app.get('/data',async (req,res)=>{
     data.rows = await handleScraping(req,res,scapStatus)
-    await res.render('data', {rows :  data.rows})
-        .then(()=>{scapStatus.status = false})
+    res.render('data', {rows :  data.rows})
+        scapStatus.status = false
 
     console.log('Scrap off :: data rendered')
 })
