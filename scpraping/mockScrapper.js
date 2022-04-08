@@ -46,10 +46,6 @@ async function firstLogin(){
 
 async function fetchData(){
 
-    await page.goto('https://service.europe.arco.biz/ktmthinclient/Validation.aspx')
-        .then(()=>console.log("Page Validation page reached"))
-        .catch((e)=>console.log('Goto Fail page'))
-
     // RUN puppeteer
     await sessionExpired(page)
         .then(async()=>{
@@ -64,17 +60,19 @@ async function fetchData(){
     //await page.goto(link,{waitUntil: 'networkidle2', timeout: 35000});
     console.log('[👍] Main page opened')
     
-    // delete last screensht
-    try{
-        fs.unlinkSync(`./public/assets/screenshot.png`)
-    }catch(e){
-        console.log(e)
-    }
+    // delete last screensht            // debug
+    // try{
+    //     fs.unlinkSync(`./public/assets/screenshot.png`)
+    // }catch(e){
+    //     console.log(e)
+    // }
 
-    sleep(3000)
-    await page.screenshot({ path: './public/assets/screenshot.png'});
+    // sleep(3000)
+    // await page.screenshot({ path: './public/assets/screenshot.png'});
     
-    
+    await page.goto('https://service.europe.arco.biz/ktmthinclient/Validation.aspx')
+        .then(()=>console.log("Page Validation page reached"))
+        .catch((e)=>console.log('Goto Fail page'))
     
     // Wait for selector
     await page.waitForSelector('.x-grid3-row-table tr',{visible:true,timeout: 0})
