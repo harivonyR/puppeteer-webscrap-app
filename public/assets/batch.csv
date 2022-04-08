@@ -1,23 +1,49 @@
 index,batch,document,status
-1,BATCH 2508345,1,Ready
-2,BATCH 2226494,3,Ready
-3,BATCH 1363180,1,Ready
-13,gem_maldegem-MULTI- BATCH 563054,2,Ready
-16,gem_aartselaar-MULTI- BATCH 5828,1,Ready
-22,gem_meulebeke-MULTI- BATCH 56334,1,Ready
-24,BATCH 494161,1,Ready
-25,BATCH 494167,1,Ready
-27,BATCH 494171,2,Ready
-28,BATCH 494173,1,Ready
-29,BATCH 494177,1,Ready
-30,BATCH 4986136,2,Ready
-31,BATCH 494285,1,Ready
-32,BATCH 494291,1,Ready
-33,BATCH 495606,1,Ready
-34,BATCH 495613,1,Ready
-35,BATCH 495618,1,Ready
-36,BATCH 495642,1,Ready
-37,BATCH 4199417,6,Ready
-38,BATCH 8661573,2,Ready
-39,BATCH 8661605,1,Ready
-40,BATCH 237334,1,Ready
+2,BATCH 549656,2,Ready
+3,BATCH 668696,1,Ready
+4,BATCH 668698,1,Ready
+5,BATCH 668700,1,Ready
+6,BATCH 668702,1,Ready
+7,BATCH 668746,1,Ready
+8,BATCH 668748,1,Ready
+9,BATCH 668750,1,Ready
+10,BATCH 668752,1,Ready
+43,gem_nazareth-MULTI- BATCH 369010,1,Ready
+44,ocmw_st_laureins-MULTI- BATCH 36,1,Ready
+50,stad_hasselt-02- BATCH 7347327,17,Ready
+51,gem_lummen-03- BATCH 8838870,8,Ready
+52,gem_houthalen-02- BATCH 7348232,1,Ready
+53,pol_hano-02- BATCH 7348586,2,Ready
+54,stad_geel-02- BATCH 7349165,15,Ready
+55,ocmw_zonhoven-05- BATCH 5316573,1,Ready
+56,gem_zonhoven-05- BATCH 5317086,1,Ready
+57,stad_geel-02- BATCH 7349379,3,Ready
+58,ocmw_dilsenstokkem-01- BATCH 806,4,Ready
+59,gem_zwalm-MULTI- BATCH 3506329,6,Ready
+60,stad_hasselt-02- BATCH 7349615,3,Ready
+61,gem_zulte-MULTI- BATCH 3506412,5,Ready
+62,agbs_herentals-02- BATCH 7349739,2,Ready
+63,gem_heers-02- BATCH 7349741,2,Ready
+64,stad_herentals-02- BATCH 7349743,5,Ready
+65,gem_laakdal-03- BATCH 8842470,8,Ready
+66,ocmw_laakdal-03- BATCH 8842483,2,Ready
+67,gem_oudenburg-MULTI- BATCH 36920,5,Ready
+68,gem_houthalen-02- BATCH 7349847,2,Ready
+69,gem_geetbets-MULTI- BATCH 484516,5,Ready
+70,BATCH 4204891,5,Ready
+71,gem_zulte-MULTI- BATCH 3506757,10,Ready
+72,BATCH 2783512,7,Ready
+73,stad_hasselt-02- BATCH 7349908,6,Ready
+74,pol_carma-04- BATCH 7413466,8,Ready
+75,stad_tienen-MULTI- BATCH 3632911,1,Ready
+76,comp_mechelen-03- BATCH 8842566,4,Ready
+77,ocmw_borgloon-MULTI- BATCH 58352,2,Ready
+78,gem_heers-02- BATCH 7350029,3,Ready
+79,gem_diepenbeek-01- BATCH 8069897,1,Ready
+80,gem_begijnendijk-MULTI- BATCH 58,5,Ready
+81,stad_dilsenstokkem-01- BATCH 806 4/8/2022 8:18:44 AM,20,Ready
+82,stad_dilsenstokkem-01- BATCH 806 4/8/2022 8:19:25 AM,2,Ready
+83,gem_maldegem-MULTI- BATCH 563994,1,Ready
+84,gem_ranst-04- BATCH 7413530,1,Ready
+85,agb_beerse-01- BATCH 8069987,1,Ready
+86,ocmw_berlaar-01- BATCH 8069991,1,Ready
