@@ -8,7 +8,7 @@ https://developers.google.com/web/tools/puppeteer
 
 ## About release
 ### V1
-Server sun localy, code 
+Server run localy
 
 ### v2
 Separated method call for login
@@ -20,4 +20,7 @@ Server running on heroku with builder pack
 Handeling multiple requeste
 
 ### v5
-Handeling multiple request, hold browser and page scraping and avoid login() if session is not expired
+Handeling multiple request scrap <br>
+App, puppeteer don't create new browser or page on every scrap <br>
+Handle expired session
+
