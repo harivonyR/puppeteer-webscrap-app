@@ -1,17 +1,18 @@
 const puppeteer = require('puppeteer');
 //const login = require('./user');
 const {saveToCsv,csvToXls,freeBtachFile} = require('./file');
-const {handleLogin,login} = require('./pageCheck')
+const {handleLogin,login,sessionExpired} = require('./pageCheck')
 const sleep = require('./helper');
 const fs = require ('fs');
 //const login = require('./user');
 // const login = require('./user');
 
 // DATA
-let link = 'https://service.europe.arco.biz/ktmthinclient/Validation.aspx';
+//let link = 'https://service.europe.arco.biz/ktmthinclient/Validation.aspx';
+var browser;
+var page;
 
-async function scrap(){
-// RUN puppeteer
+async function createBrowser(){
     const browser = await puppeteer.launch({
         ignoreHTTPSErrors: true,
         headless: true,
@@ -19,17 +20,38 @@ async function scrap(){
         args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
     console.log('[👍] browser .. ');
-
+    return browser
+}
+async function createPage(browser){
     const page = await browser.newPage();
     console.log('[👍] new page created  ..');
+    return page
+}
 
-//////////// BEGIN LOGIN
-    //await handleLogin(page)
-    await login(page)
-    await page.screenshot({ path: './public/assets/login.png'});
+(async()=>{
+    browser = await createBrowser()
+    page = await createPage(browser)
+    await page.goto('https://service.europe.arco.biz/ktmthinclient/ValidationLogin.aspx')
+        .then(async ()=>{
+            console.log('[👍] Login page opened')
+            await login(page)
+        })
+        .catch((e)=>console.log("Go to Login page erro :: "+e))
+})()
 
-/////////////// END LOGIN
+
+async function fetchData(){
+// RUN puppeteer
+    await sessionExpired(page)
+        .then(async()=>{
+            console.log("Session is expired, wait for press Enter")
+            await page.keyboard.press('Enter')
+            await login(page)
+            console.log("Enter is pressed")
+        })
+        .catch((e)=>console.log("Session not expired"))
     sleep(5000)
+    
     //await page.goto(link,{waitUntil: 'networkidle2', timeout: 35000});
     console.log('[👍] Main page opened')
     
@@ -60,9 +82,6 @@ async function scrap(){
             })
     )
     
-// CONCATENATE the new result
-        //res = [...res,...properties];
-    
 // Filter data
     rows = rows.filter((e)=>e.status=="Ready")
     console.log("Total file scraped "+rows.length)
@@ -74,8 +93,7 @@ async function scrap(){
     csvToXls('batch');
     //await browser.close();        
     return (rows);
-
     // close the browser
 }
 
-module.exports = {scrap}
+module.exports = {fetchData}

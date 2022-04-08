@@ -13,7 +13,7 @@ async function sessionExpired(page){
             resolve(true)
         })
         .catch((e)=>{
-            console.log('seemms user is logged in')
+            console.log('Page not on expirate page')
             reject(false)
         })
     })
@@ -58,11 +58,10 @@ async function handleLogin(page){                         // login page
 }
 
 async function login(page){                         // login page
-    console.log('[👍] handleLogin ');
+    console.log('[👍] login ready ');
 
     console.log('[👍] login page is openning ');
-
-    await page.goto('https://service.europe.arco.biz/ktmthinclient/ValidationLogin.aspx')
+    //await page.goto('https://service.europe.arco.biz/ktmthinclient/ValidationLogin.aspx')
 
     //await sleep(4000)
     await page.waitForSelector('#userName')
@@ -84,4 +83,4 @@ async function login(page){                         // login page
     await page.screenshot({ path: './public/assets/login.png'});
 }
 
-module.exports = {handleLogin,login}
+module.exports = {handleLogin,login,sessionExpired}

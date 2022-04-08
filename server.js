@@ -3,7 +3,7 @@ const app = express();
 const path = require ("path")
 const fs = require ('fs');
 const {emiter} = require('./event/EventEmmiter');
-const {scrap} = require ('./scpraping/mockScrapper');
+const {fetchData} = require ('./scpraping/mockScrapper');
 const sleep = require("./scpraping/helper");
 
 const PORT = process.env.PORT || 8080;
@@ -40,7 +40,7 @@ async function handleScraping(req,res,status){
         status.onScrap = true;
             console.log('Scrap on')                              
         
-        let data = await scrap()   
+        let data = await fetchData()   
             console.log('Scrap end')
 
         return data
