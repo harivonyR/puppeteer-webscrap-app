@@ -1,61 +1,59 @@
 index,batch,document,status
-1,BATCH 2509480,5,Ready
-2,BATCH 1363907,1,Ready
-3,BATCH 1363909,1,Ready
-4,BATCH 1363911,1,Ready
-5,BATCH 1818479,1,Ready
-6,BATCH 1818481,1,Ready
-7,BATCH 1818483,1,Ready
-8,BATCH 1818485,1,Ready
-9,BATCH 1818487,1,Ready
-10,BATCH 1818489,1,Ready
-11,BATCH 1818491,2,Ready
-12,BATCH 1818573,1,Ready
-13,BATCH 1818575,1,Ready
-14,BATCH 468052,1,Ready
-15,BATCH 2227395,3,Ready
-16,BATCH 3467169,5,Ready
-17,BATCH 2644169,5,Ready
-18,BATCH 3467243,6,Ready
-19,BATCH 2644228,1,Ready
-52,BATCH 502473,1,Ready
-54,BATCH 502477,2,Ready
-56,BATCH 8666745,13,Ready
-57,BATCH 502553,1,Ready
-58,BATCH 502555,1,Ready
-61,BATCH 8667892,6,Ready
-63,ocmw_staden-MULTI- BATCH 3633541,7,Ready
-65,prov_ovlaanderen-03- BATCH 88440,11,Ready
-66,gem_merksplas-MULTI- BATCH 56407,2,Ready
-67,ocmw_meerhout-MULTI- BATCH 56407,1,Ready
-70,comp_mechelen-03- BATCH 8844248,2,Ready
-71,gem_westerlo-05- BATCH 5317996,8,Ready
-72,gem_gavere-MULTI- BATCH 4845882,6,Ready
-73,gem_bierbeek-MULTI- BATCH 583637,1,Ready
-74,stad_lommel-03- BATCH 8844549,4,Ready
-75,ocmw_borgloon-MULTI- BATCH 58363,6,Ready
-76,ocmw_bredene-MULTI- BATCH 583638,2,Ready
-77,gem_boortmeerbeek-MULTI- BATCH 5 4/8/2022 10:28:06 AM,1,Ready
-78,gem_houthalen-02- BATCH 7351661,1,Ready
-79,stad_tongeren-MULTI- BATCH 36338,1,Ready
-80,ocmw_tessenderlo-04- BATCH 74149,5,Ready
-81,gem_riemst-04- BATCH 7414971,1,Ready
-82,gem_meerhout-MULTI- BATCH 564108,1,Ready
-83,stad_aalst-01- BATCH 8071376,2,Ready
-84,gem_wuustwezel-05- BATCH 5318091,1,Ready
-85,agb_puurs_sint_amands-MULTI- BAT,1,Ready
-86,gem_puurs_sint_amands-MULTI- BAT,4,Ready
-87,zorg_opcura-MULTI- BATCH 3692565,1,Ready
-88,prov_ovlaanderen-03- BATCH 88448,5,Ready
-89,prov_limburg-03- BATCH 8844860,4,Ready
-90,hvz_zuidoost-05- BATCH 5318093,2,Ready
-91,stad_hasselt-02- BATCH 7351745,14,Ready
-92,ocmw_hasselt-02- BATCH 7351747,1,Ready
-93,gem_wervik-MULTI- BATCH 3507505,1,Ready
-94,stad_aarschot-01- STAD 8071383,1,Ready
-95,stad_aarschot-01- STAD 8071388,2,Ready
-96,stad_aarschot-01- STAD 8071393,1,Ready
-97,stad_aarschot-01- STAD 8071398,2,Ready
-98,gem_schilde-04- BATCH 7415014,3,Ready
-99,ocmw_nijlen-03- BATCH 8845022,1,Ready
-100,gem_nijlen-03- BATCH 8845031,2,Ready
+1,BATCH 1363979,1,Ready
+11,BATCH 494169,1,Ready
+12,BATCH 494171,1,Ready
+34,BATCH 502473,1,Ready
+36,BATCH 502477,2,Ready
+38,BATCH 8666745,13,Ready
+39,BATCH 502553,1,Ready
+40,BATCH 502555,1,Ready
+43,BATCH 8667892,6,Ready
+44,BATCH 8668146,5,Ready
+46,ocmw_staden-MULTI- BATCH 3633541,7,Ready
+48,BATCH 2287599,1,Ready
+49,BATCH 2287601,1,Ready
+50,BATCH 2287603,1,Ready
+51,BATCH 2287605,1,Ready
+52,BATCH 2287607,1,Ready
+53,BATCH 2287609,1,Ready
+54,BATCH 2287611,1,Ready
+55,BATCH 5509869,52,Ready
+56,prov_ovlaanderen-03- BATCH 88440,11,Ready
+57,BATCH 3543498,10,Ready
+58,BATCH 8668176,5,Ready
+59,ocmw_meerhout-MULTI- BATCH 56407,1,Ready
+63,ocmw_borgloon-MULTI- BATCH 58363,6,Ready
+65,gem_boortmeerbeek-MULTI- BATCH 5 4/8/2022 10:28:06 AM,1,Ready
+66,gem_houthalen-02- BATCH 7351661,1,Ready
+67,stad_tongeren-MULTI- BATCH 36338,1,Ready
+68,gem_riemst-04- BATCH 7414971,1,Ready
+71,stad_aarschot-01- STAD 8071393,1,Ready
+72,stad_aarschot-01- STAD 8071398,2,Ready
+73,gem_schilde-04- BATCH 7415014,3,Ready
+74,gem_depinte-MULTI- BATCH 5836463,2,Ready
+75,ocmw_borgloon-MULTI- BATCH 58364,1,Ready
+76,gem_bonheiden-MULTI- BATCH 58364,3,Ready
+77,gem_boortmeerbeek-MULTI- BATCH 5,1,Ready
+78,agb_bonheiden-MULTI- BATCH 58364,1,Ready
+79,stad_tienen-MULTI- BATCH 3633875,1,Ready
+80,stad_tongeren-MULTI- BATCH 36338 4/8/2022 10:37:42 AM,4,Ready
+81,gem_tielt-MULTI- BATCH 3633888,2,Ready
+82,stad_sinttruiden-04- BATCH 74150,1,Ready
+83,pol_mechelen-04- BATCH 7415076,2,Ready
+84,stad_stniklaas-04- BATCH 7415078,2,Ready
+85,pol_ieper-04- BATCH 7415080,1,Ready
+86,pol_leuven-04- BATCH 7415082,6,Ready
+87,gem_kortessem-03- BATCH 8845075,2,Ready
+88,gem_gavere-MULTI- BATCH 4846005,2,Ready
+89,gem_lennik-MULTI- BATCH 5641445,1,Ready
+90,gem_diepenbeek-01- BATCH 8071480,1,Ready
+91,gem_riemst-04- BATCH 7415103,5,Ready
+92,gem_affligem-MULTI- BATCH 583657,2,Ready
+93,zorg_puurs_sint_amands-MULTI- BA,2,Ready
+94,stad_herentals-02- BATCH 7351856,1,Ready
+95,ocmw_houthalen-02- BATCH 7351862,1,Ready
+96,comp_mechelen-03- BATCH 8845087,2,Ready
+97,agb_vilvoorde-05- BATCH 5318187,1,Ready
+98,ocmw_wevelgem-MULTI- BATCH 35075,6,Ready
+99,stad_zoutleeuw-MULTI- BATCH 3507,1,Ready
+100,ocmw_wortegem_petegem-MULTI- BAT,1,Ready
