@@ -28,20 +28,29 @@ async function createPage(browser){
     return page
 }
 
-(async()=>{
-    browser = await createBrowser()
-    page = await createPage(browser)
+async function firstLogin(){
     await page.goto('https://service.europe.arco.biz/ktmthinclient/ValidationLogin.aspx')
         .then(async ()=>{
             console.log('[👍] Login page opened')
             await login(page)
         })
         .catch((e)=>console.log("Go to Login page erro :: "+e))
+}
+
+(async()=>{
+    browser = await createBrowser()
+    page = await createPage(browser)
+    await firstLogin(page)
 })()
 
 
 async function fetchData(){
-// RUN puppeteer
+
+    await page.goto('https://service.europe.arco.biz/ktmthinclient/Validation.aspx')
+        .then(()=>console.log("Page Validation page reached"))
+        .catch((e)=>console.log('Goto Fail page'))
+
+    // RUN puppeteer
     await sessionExpired(page)
         .then(async()=>{
             console.log("Session is expired, wait for press Enter")
@@ -64,6 +73,8 @@ async function fetchData(){
 
     sleep(3000)
     await page.screenshot({ path: './public/assets/screenshot.png'});
+    
+    
     
     // Wait for selector
     await page.waitForSelector('.x-grid3-row-table tr',{visible:true,timeout: 0})
