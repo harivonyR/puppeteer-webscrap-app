@@ -1,6 +1,5 @@
 const puppeteer = require('puppeteer')
 const sleep = require('./helper')
-const logger = require('heroku-logger')
 const fs = require('fs')
 
 async function login (browser){

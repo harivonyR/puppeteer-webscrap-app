@@ -1,12 +1,85 @@
-index,batch,document,status
-19,BATCH 5680848,25,Ready
-21,ocmw_willebroek-05- BATCH 532021,5,Ready
-22,gem_willebroek-05- BATCH 5320237,3,Ready
-23,BATCH 3359042,20,Ready
-24,BATCH 3359050,20,Ready
-25,comp_oostrozebeke-MULTI- BATCH 3 4/9/2022 9:56:48 PM,1,Ready
-26,pol_hano-02- BATCH 7360514,1,Ready
-28,ocmw_zonhoven-05- BATCH 5328417,2,Ready
-29,gem_lint-03- BATCH 8864494,3,Ready
-30,stad_sinttruiden-04- BATCH 74352,3,Ready
-31,comp_oostrozebeke-MULTI- BATCH 3 4/11/2022 7:18:42 AM,1,Ready
+index,batch,priority,client,document,date,status
+1,BATCH 3471786,4,SERVICEACCOUNT,10,4/11/2022 12:03:40 PM,Ready
+2,BATCH 2230416,4,SERVICEACCOUNT,2,4/11/2022 12:05:00 PM,Ready
+3,BATCH 3200368,4,SERVICEACCOUNT,1,4/11/2022 12:14:45 PM,Ready
+4,BATCH 1366161,4,SERVICEACCOUNT,1,4/11/2022 12:19:33 PM,Ready
+5,BATCH 3471851,4,SERVICEACCOUNT,8,4/11/2022 12:19:35 PM,Ready
+6,BATCH 2512791,4,SERVICEACCOUNT,1,4/11/2022 12:27:43 PM,Ready
+7,BATCH 2230489,4,SERVICEACCOUNT,1,4/11/2022 12:35:09 PM,Ready
+8,BATCH 3471899,4,SERVICEACCOUNT,7,4/11/2022 12:35:12 PM,Ready
+9,BATCH 788397,4,SERVICEACCOUNT,1,4/11/2022 12:37:56 PM,Ready
+22,BATCH 2295069,5,SERVICEACCOUNT,1,4/11/2022 11:06:20 AM,Ready
+23,gem_meerhout-MULTI- BATCH 565889,5,SAAS-EUROPE\cipal_KofaxService,4,4/11/2022 11:06:42 AM,Ready
+26,gem_stkatwaver-04- BATCH 7437012,5,SAAS-EUROPE\cipal_KofaxService,12,4/11/2022 11:14:14 AM,Ready
+29,gem_wevelgem-MULTI- BATCH 350690,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:18:47 AM,Ready
+30,gem_wemmel-MULTI- BATCH 3516027,5,SAAS-EUROPE\cipal_KofaxService,3,4/11/2022 11:18:49 AM,Ready
+31,pol_kempenland-04- BATCH 7437099,5,SAAS-EUROPE\cipal_KofaxService,3,4/11/2022 11:19:35 AM,Ready
+32,ocmw_ranst-04- BATCH 7437101,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:19:43 AM,Ready
+33,ocmw_willebroek-05- BATCH 532995,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:20:23 AM,Ready
+34,ocmw_hulshout-02- BATCH 7367373,5,SAAS-EUROPE\cipal_KofaxService,4,4/11/2022 11:23:42 AM,Ready
+35,comp_mechelen-03- BATCH 8867019,5,SAAS-EUROPE\cipal_KofaxService,2,4/11/2022 11:23:56 AM,Ready
+36,agbs_lommel-03- BATCH 8867021,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:24:00 AM,Ready
+37,ocmw_hamontachel-02- BATCH 73673,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:29:02 AM,Ready
+38,gem_depinte-MULTI- BATCH 5853925,5,SAAS-EUROPE\cipal_KofaxService,2,4/11/2022 11:30:33 AM,Ready
+39,ocmw_bonheiden-MULTI- BATCH 5853,5,SAAS-EUROPE\cipal_KofaxService,2,4/11/2022 11:30:37 AM,Ready
+40,BATCH 5526199,5,SERVICEACCOUNT,21,4/11/2022 11:30:48 AM,Ready
+41,gem_affligem-MULTI- BATCH 585393,5,SAAS-EUROPE\cipal_KofaxService,5,4/11/2022 11:30:53 AM,Ready
+42,gem_heusden_zolder-MULTI- BATCH 4/11/2022 10:31:05 AM,5,SAAS-EUROPE\cipal_KofaxService,2,4/11/2022 11:31:05 AM,Ready
+43,gem_pittem-MULTI- BATCH 3700747,5,SAAS-EUROPE\cipal_KofaxService,3,4/11/2022 11:31:11 AM,Ready
+44,gem_puurs_sint_amands-MULTI- BAT 4/11/2022 10:31:20 AM,5,SAAS-EUROPE\cipal_KofaxService,6,4/11/2022 11:31:20 AM,Ready
+45,ocmw_puurs_sint_amands-MULTI- BA,5,SAAS-EUROPE\cipal_KofaxService,8,4/11/2022 11:31:42 AM,Ready
+46,zorg_puurs_sint_amands-MULTI- BA,5,SAAS-EUROPE\cipal_KofaxService,3,4/11/2022 11:31:56 AM,Ready
+47,gem_opwijk-MULTI- BATCH 3700755,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:32:02 AM,Ready
+48,comp_oostrozebeke-MULTI- BATCH 3 4/11/2022 10:32:06 AM,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:32:06 AM,Ready
+49,ocmw_oostrozebeke-MULTI- BATCH 3,5,SAAS-EUROPE\cipal_KofaxService,4,4/11/2022 11:32:10 AM,Ready
+50,ocmw_oudenaarde-MULTI- BATCH 370,5,SAAS-EUROPE\cipal_KofaxService,4,4/11/2022 11:32:31 AM,Ready
+51,gem_lille-MULTI- BATCH 5659591,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:32:49 AM,Ready
+52,stad_aalst-01- BATCH 8091558,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:33:54 AM,Ready
+53,stad_aarschot-01- BATCH 8091560,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:33:58 AM,Ready
+54,agb_aarschot-01- BATCH 8091562,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:34:01 AM,Ready
+55,ocmw_lierde-MULTI- BATCH 5659593,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:34:11 AM,Ready
+56,agb_bocholt-01- BATCH 8091564,5,SAAS-EUROPE\cipal_KofaxService,3,4/11/2022 11:34:18 AM,Ready
+57,stad_maaseik-03- BATCH 8867170,5,SAAS-EUROPE\cipal_KofaxService,16,4/11/2022 11:34:29 AM,Ready
+58,ocmw_laakdal-03- BATCH 8867181,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:35:04 AM,Ready
+59,agbm_houthalen-02- BATCH 7367418,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:35:11 AM,Ready
+60,gem_putte-04- BATCH 7437241,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:35:15 AM,Ready
+61,gem_stkatwaver-04- BATCH 7437246,5,SAAS-EUROPE\cipal_KofaxService,2,4/11/2022 11:35:18 AM,Ready
+62,BATCH 4226264,5,SERVICEACCOUNT,1,4/11/2022 11:36:25 AM,Ready
+63,gem_staden-MULTI- BATCH 3643098,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:36:28 AM,Ready
+64,BATCH 8691202,5,SERVICEACCOUNT,1,4/11/2022 11:38:05 AM,Ready
+65,agb_arendonk-01- BATCH 8091613,5,SAAS-EUROPE\cipal_KofaxService,2,4/11/2022 11:39:36 AM,Ready
+66,gem_brasschaat-01- BATCH 8091615,5,SAAS-EUROPE\cipal_KofaxService,2,4/11/2022 11:39:39 AM,Ready
+67,gem_kasterlee-03- BATCH 8867245,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:39:44 AM,Ready
+68,agb_kapellen-03- BATCH 8867253,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:39:48 AM,Ready
+69,gem_wingene-05- BATCH 5330072,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:39:50 AM,Ready
+70,prov_ovlaanderen-03- BATCH 88672,5,SAAS-EUROPE\cipal_KofaxService,2,4/11/2022 11:39:53 AM,Ready
+71,ocmw_westerlo-05- BATCH 5330074,5,SAAS-EUROPE\cipal_KofaxService,2,4/11/2022 11:39:58 AM,Ready
+72,ocmw_hasselt-02- BATCH 7367448,5,SAAS-EUROPE\cipal_KofaxService,2,4/11/2022 11:40:07 AM,Ready
+73,gem_rijkevorsel-04- BATCH 743727,5,SAAS-EUROPE\cipal_KofaxService,7,4/11/2022 11:41:12 AM,Ready
+74,gem_retie-04- BATCH 7437278,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:41:22 AM,Ready
+75,ocmw_retie-04- BATCH 7437280,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:41:24 AM,Ready
+76,ocmw_avelgem-MULTI- BATCH 585401,5,SAAS-EUROPE\cipal_KofaxService,2,4/11/2022 11:41:27 AM,Ready
+77,ocmw_wevelgem-MULTI- BATCH 35162,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:41:40 AM,Ready
+78,gem_tervuren-MULTI- BATCH 364319,5,SAAS-EUROPE\cipal_KofaxService,21,4/11/2022 11:42:45 AM,Ready
+79,gem_ruiselede-MULTI- BATCH 37008,5,SAAS-EUROPE\cipal_KofaxService,2,4/11/2022 11:43:30 AM,Ready
+80,ocmw_puurs_sint_amands-MULTI- BA 4/11/2022 10:43:36 AM,5,SAAS-EUROPE\cipal_KofaxService,2,4/11/2022 11:43:36 AM,Ready
+81,zorg_puurs_sint_amands-MULTI- BA 4/11/2022 10:43:40 AM,5,SAAS-EUROPE\cipal_KofaxService,2,4/11/2022 11:43:40 AM,Ready
+82,ocmw_tervuren-MULTI- BATCH 36431,5,SAAS-EUROPE\cipal_KofaxService,3,4/11/2022 11:43:46 AM,Ready
+83,gem_koksijde-MULTI- BATCH 565967,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:44:00 AM,Ready
+84,gem_merksplas-MULTI- BATCH 56596,5,SAAS-EUROPE\cipal_KofaxService,3,4/11/2022 11:44:04 AM,Ready
+85,ocmw_meerhout-MULTI- BATCH 56596,5,SAAS-EUROPE\cipal_KofaxService,2,4/11/2022 11:44:12 AM,Ready
+86,gem_malle-03- BATCH 8867309,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:45:19 AM,Ready
+87,BATCH 4997282,5,SERVICEACCOUNT,1,4/11/2022 11:45:43 AM,Ready
+88,gem_schilde-04- BATCH 7437560,5,SAAS-EUROPE\cipal_KofaxService,12,4/11/2022 11:47:25 AM,Ready
+89,stad_sinttruiden-04- BATCH 74375,5,SAAS-EUROPE\cipal_KofaxService,3,4/11/2022 11:47:43 AM,Ready
+90,gem_bornem-MULTI- BATCH 5854063,5,SAAS-EUROPE\cipal_KofaxService,9,4/11/2022 11:47:54 AM,Ready
+91,gem_deerlijk-MULTI- BATCH 585406,5,SAAS-EUROPE\cipal_KofaxService,6,4/11/2022 11:48:11 AM,Ready
+92,ocmw_grimbergen-MULTI- BATCH 485 4/11/2022 10:48:21 AM,5,SAAS-EUROPE\cipal_KofaxService,21,4/11/2022 11:48:21 AM,Ready
+93,BATCH 8691659,5,SERVICEACCOUNT,4,4/11/2022 11:48:38 AM,Ready
+94,ocmw_grimbergen-MULTI- BATCH 485 4/11/2022 10:49:20 AM,5,SAAS-EUROPE\cipal_KofaxService,8,4/11/2022 11:49:20 AM,Ready
+95,gem_overijse-03- BATCH 8867612,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:50:37 AM,Ready
+96,ocmw_hulshout-02- BATCH 7367510,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:51:42 AM,Ready
+97,pol_turnhout-04- BATCH 7437715,5,SAAS-EUROPE\cipal_KofaxService,2,4/11/2022 11:51:46 AM,Ready
+98,ocmw_deerlijk-MULTI- BATCH 58541,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:51:52 AM,Ready
+99,gem_beersel-01- BATCH 8091776,5,SAAS-EUROPE\cipal_KofaxService,43,4/11/2022 11:52:58 AM,Ready
+100,ocmw_diepenbeek-01- BATCH 809178,5,SAAS-EUROPE\cipal_KofaxService,1,4/11/2022 11:53:58 AM,Ready

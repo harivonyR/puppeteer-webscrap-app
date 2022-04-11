@@ -13,7 +13,7 @@ async function sessionExpired(page){
             resolve(true)
         })
         .catch((e)=>{
-            console.log('Page not on expirate page')
+            console.log('[👍] Page not on expirate page')
             reject(false)
         })
     })
