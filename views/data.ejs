@@ -14,8 +14,10 @@
             <tr>
                 <th>Index</th>
                 <th>Batch</th>
+                <th>Client</th>
+                <th>Priority</th>
                 <th>Document</th>
-                <th>Status</th>
+                <th>Date</th>
             </tr>
         </thead>
             <tbody>
@@ -23,8 +25,10 @@
                     <tr>
                         <td><%= row.index %></td>
                         <td><%= row.batch %></td>
+                        <td><%= row.client%></td>
+                        <td><%= row.priority%></td>
                         <td><%= row.document%></td>
-                        <td><%= row.status %></td>
+                        <td><%= row.date %></td>
                     </tr>
                <% }) %>
             </tbody>
