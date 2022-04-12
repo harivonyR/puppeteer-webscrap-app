@@ -3,17 +3,13 @@ const app = express();
 const path = require ("path")
 const fs = require ('fs');
 const {emiter} = require('./event/EventEmmiter');
-const {fetchData,restartBrowser,browser,page} = require ('./scpraping/mockScrapper');
+const {fetchData,startBrowser} = require ('./scpraping/mockScrapper');
 const sleep = require("./scpraping/helper");
 
 const PORT = process.env.PORT || 8080;
 
 
 // start the browser
-(async()=>{
-    await restartBrowser();
-})()
-
 var data = {
     rows : []
 }
@@ -22,8 +18,6 @@ var scapStatus = {
     data : false,
     onScrap : false,
 }
-
-
 
 async function waitForScrap(scapStatus){       // wait scraping to be done
     (function listen(){
@@ -54,6 +48,31 @@ async function handleScraping(req,res,status){
     else
         res.send('ERROR : handling event scrap && data')  
 }
+
+
+async function handleBrowser(){
+    startBrowser(true)
+    setInterval(async()=>{      // auto restart browser
+        if(scapStatus.onScrap===false){
+            scapStatus.onScrap = true
+            console.log(">>> Restarting browser ... scraStatusOn")
+            await startBrowser(true)
+                .then(()=>{
+                    scapStatus.onScrap = false
+                    console.log(">>> Browser ok, scrap status off")
+                })
+        }
+        else{
+            waitForScrap(scapStatus)
+        }
+        
+    },60000)
+}
+
+handleBrowser()
+// autostartBrowser()
+
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

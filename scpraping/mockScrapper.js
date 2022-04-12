@@ -38,31 +38,23 @@ async function firstLogin(){
         })
         .catch((e)=>console.log("Go to Login page erro :: "+e))
 }
-
-const restartBrowser = async(param)=>{ // param is debug
+// @param : enable firstlogin
+const startBrowser = async(param)=>{ // param is debug
     browser = await createBrowser()
     page = await createPage(browser)
     if(param===true){
         await firstLogin(page)
     }
-    // console.log(">>>>>>>>>"+scapStatus)
     return new Promise((resolve)=>resolve(true))
 }
 
-// restartBrowser()
-// (async()=>{
-//     await restartBrowser();
-// })()
-
-//await restartBrowser()
-
 async function fetchData(){
-    await page.goto('https://service.europe.arco.biz/ktmthinclient/Validation.aspx')
+    //await page.goto('https://service.europe.arco.biz/ktmthinclient/Validation.aspx')
     // RUN puppeteer
     await sessionExpired(page)
         .then(async(expired)=>{
             if(expired===true){
-                await restartBrowser(true)
+                await startBrowser(true)
                 console.log("[👍] handle seesion expired")
             }
             else if(expired===false){
@@ -73,7 +65,7 @@ async function fetchData(){
             
         })
         .catch(async(e)=>{
-            await restartBrowser(true)
+            await startBrowser(true)
             console.log("ERR catch sessionExpiored")
         })
     sleep(5000)
@@ -117,4 +109,4 @@ async function fetchData(){
     // close the browser
 }
 
-module.exports = {fetchData,restartBrowser,browser,page}
+module.exports = {fetchData,startBrowser}
