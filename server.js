@@ -66,7 +66,7 @@ async function handleBrowser(){
             waitForScrap(scapStatus)
         }
         
-    },60000)
+    },900000)
 }
 
 handleBrowser()
