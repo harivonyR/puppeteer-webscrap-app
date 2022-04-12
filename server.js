@@ -31,7 +31,7 @@ async function handleBrowser(){
                 })
         }
         else{
-            waitForScrap(scapStatus)
+            await waitForScrap(scapStatus)
         }
         
     },900000)
