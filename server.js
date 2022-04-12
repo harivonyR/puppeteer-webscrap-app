@@ -18,10 +18,25 @@ var data = {
 }
 
 // start the browser
-(async()=>{
-    await restartBrowser();
-})()
-
+async function handleBrowser(){
+    restartBrowser(true)
+    setInterval(async()=>{      // auto restart browser
+        if(scapStatus.onScrap===false){
+            scapStatus.onScrap = true
+            console.log(">>> Restarting browser ... scraStatusOn")
+            await restartBrowser(true)
+                .then(()=>{
+                    scapStatus.onScrap = false
+                    console.log(">>> Browser ok, scrap status off")
+                })
+        }
+        else{
+            waitForScrap(scapStatus)
+        }
+        
+    },900000)
+}
+handleBrowser()
 
 async function waitForScrap(scapStatus){       // wait scraping to be done
     (function listen(){
