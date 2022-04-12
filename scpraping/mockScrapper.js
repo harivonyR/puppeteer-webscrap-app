@@ -4,6 +4,8 @@ const {saveToCsv,csvToXls,freeBtachFile} = require('./file');
 const {handleLogin,login,sessionExpired} = require('./pageCheck')
 const sleep = require('./helper');
 const fs = require ('fs');
+const { resolve } = require('path');
+const { param } = require('express/lib/request');
 //const login = require('./user');
 // const login = require('./user');
 
@@ -37,22 +39,30 @@ async function firstLogin(){
         .catch((e)=>console.log("Go to Login page erro :: "+e))
 }
 
-const restartBrowser = async()=>{
+const restartBrowser = async(param)=>{ // param is debug
     browser = await createBrowser()
     page = await createPage(browser)
-    await firstLogin(page)
+    if(param===true){
+        await firstLogin(page)
+    }
+    // console.log(">>>>>>>>>"+scapStatus)
+    return new Promise((resolve)=>resolve(true))
 }
+
+// restartBrowser()
+// (async()=>{
+//     await restartBrowser();
+// })()
 
 //await restartBrowser()
 
 async function fetchData(){
-
+    await page.goto('https://service.europe.arco.biz/ktmthinclient/Validation.aspx')
     // RUN puppeteer
     await sessionExpired(page)
         .then(async(expired)=>{
             if(expired===true){
-                await restartBrowser()
-                await login(page)
+                await restartBrowser(true)
                 console.log("[👍] handle seesion expired")
             }
             else if(expired===false){
@@ -62,13 +72,16 @@ async function fetchData(){
                 console.log('[x] Error handling promise resolve bool on session expired')
             
         })
-        .catch((e)=>console.log("ERR catch sessionExpiored"))
+        .catch(async(e)=>{
+            await restartBrowser(true)
+            console.log("ERR catch sessionExpiored")
+        })
     sleep(5000)
     
     
-    await page.goto('https://service.europe.arco.biz/ktmthinclient/Validation.aspx')
-        .then(()=>console.log("[👍] validation page opened"))
-        .catch((e)=>console.log('Goto validation Fail page'))
+    //  await page.goto('https://service.europe.arco.biz/ktmthinclient/Validation.aspx')
+    //      .then(()=>console.log("[👍] validation page opened"))
+    //      .catch((e)=>console.log('Goto validation Fail page'))
     
     // Wait for selector
     await page.waitForSelector('.x-grid3-row-table tr',{visible:true,timeout: 0})

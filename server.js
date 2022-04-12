@@ -8,19 +8,21 @@ const sleep = require("./scpraping/helper");
 
 const PORT = process.env.PORT || 8080;
 
-var scapStatus = {
-    data : false,
-    onScrap : false,
-}
-
-var data = {
-    rows : []
-}
 
 // start the browser
 (async()=>{
     await restartBrowser();
 })()
+
+var data = {
+    rows : []
+}
+
+var scapStatus = {
+    data : false,
+    onScrap : false,
+}
+
 
 
 async function waitForScrap(scapStatus){       // wait scraping to be done
@@ -77,6 +79,32 @@ app.get('/download', async (req,res)=>{
     try {res.download('./public/assets/batch.xls');}
     catch (e){console.log('Download error ::'+e)}
  })
+
+app.get('/event', async (req,res)=>{
+    emiter.emit('scrapOn')
+    res.render('event')
+ })
+
+// app.get('/screenshot_main', async (req,res)=>{
+//     res.download('./public/assets/screenshot.png'); 
+//  })
+
+//  app.get('/screenshot_login', async (req,res)=>{
+//     res.download('./public/assets/login.png'); 
+//  })
+
+// app.get('/unlink', async (req,res)=>{
+//     try{
+//         fs.unlinkSync(`./public/assets/batch.xls`);
+//         console.log('file deleted')
+//       }catch(e){
+//         console.log('unlinck failed '+e)
+//     }
+//  })
+// app.get('/loading',async(req,res)=>{
+//     ///let data = await sleep(5000)
+//     res.render('loading')
+// })
 
 const server = app.listen(process.env.PORT || PORT, () => {
     const port = server.address().port;

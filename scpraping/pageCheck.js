@@ -8,7 +8,7 @@ var session = {
 
 async function sessionExpired(page){
     return await new Promise (async(resolve)=>{
-        await page.waitForSelector('#ext-gen28',{timeout:4000})
+        await page.waitForSelector('div.ext-mb-error',{timeout:10000})
         .then(()=>{
             resolve(true)
         })
