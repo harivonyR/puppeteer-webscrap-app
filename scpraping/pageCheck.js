@@ -7,14 +7,14 @@ var session = {
 }
 
 async function sessionExpired(page){
-    return await new Promise (async(resolve,reject)=>{
-        await page.waitForSelector('#ext-gen28',{timeout:1000})
+    return await new Promise (async(resolve)=>{
+        await page.waitForSelector('#ext-gen28',{timeout:4000})
         .then(()=>{
             resolve(true)
         })
         .catch((e)=>{
-            console.log('[👍] Page not on expirate page')
-            reject(false)
+            console.log('ERR :::'+e)
+            resolve(false)
         })
     })
 }
@@ -28,7 +28,7 @@ async function loadLogin(page){
         console.log('[👍] login page opened !');
     }
 
-}   
+}  
 
 async function handleLogin(page){                         // login page
     console.log('[👍] handleLogin ');
