@@ -98,7 +98,7 @@ async function fetchData(){
 // Filter data
     rows = rows.filter((e)=>e.status=="Ready")
     console.log("Total file scraped "+rows.length)
-    console.log(rows);
+    //console.log(rows);
 
 // Saving file
     await freeBtachFile()           // delete last batch file saved
