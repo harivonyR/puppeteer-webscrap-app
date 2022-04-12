@@ -3,40 +3,21 @@ const app = express();
 const path = require ("path")
 const fs = require ('fs');
 const {emiter} = require('./event/EventEmmiter');
-const {fetchData,restartBrowser,browser,page} = require ('./scpraping/mockScrapper');
+const {fetchData,startBrowser} = require ('./scpraping/mockScrapper');
 const sleep = require("./scpraping/helper");
 
 const PORT = process.env.PORT || 8080;
+
+
+// start the browser
+var data = {
+    rows : []
+}
 
 var scapStatus = {
     data : false,
     onScrap : false,
 }
-
-var data = {
-    rows : []
-}
-
-// start the browser
-async function handleBrowser(){
-    restartBrowser(true)
-    setInterval(async()=>{      // auto restart browser
-        if(scapStatus.onScrap===false){
-            scapStatus.onScrap = true
-            console.log(">>> Restarting browser ... scraStatusOn")
-            await restartBrowser(true)
-                .then(()=>{
-                    scapStatus.onScrap = false
-                    console.log(">>> Browser ok, scrap status off")
-                })
-        }
-        else{
-            await waitForScrap(scapStatus)
-        }
-        
-    },900000)
-}
-handleBrowser()
 
 async function waitForScrap(scapStatus){       // wait scraping to be done
     (function listen(){
@@ -68,6 +49,31 @@ async function handleScraping(req,res,status){
         res.send('ERROR : handling event scrap && data')  
 }
 
+
+async function handleBrowser(){
+    startBrowser(true)
+    setInterval(async()=>{      // auto restart browser
+        if(scapStatus.onScrap===false){
+            scapStatus.onScrap = true
+            console.log(">>> Restarting browser ... scraStatusOn")
+            await startBrowser(true)
+                .then(()=>{
+                    scapStatus.onScrap = false
+                    console.log(">>> Browser ok, scrap status off")
+                })
+        }
+        else{
+            waitForScrap(scapStatus)
+        }
+        
+    },900000)
+}
+
+handleBrowser()
+// autostartBrowser()
+
+
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -92,6 +98,32 @@ app.get('/download', async (req,res)=>{
     try {res.download('./public/assets/batch.xls');}
     catch (e){console.log('Download error ::'+e)}
  })
+
+app.get('/event', async (req,res)=>{
+    emiter.emit('scrapOn')
+    res.render('event')
+ })
+
+// app.get('/screenshot_main', async (req,res)=>{
+//     res.download('./public/assets/screenshot.png'); 
+//  })
+
+//  app.get('/screenshot_login', async (req,res)=>{
+//     res.download('./public/assets/login.png'); 
+//  })
+
+// app.get('/unlink', async (req,res)=>{
+//     try{
+//         fs.unlinkSync(`./public/assets/batch.xls`);
+//         console.log('file deleted')
+//       }catch(e){
+//         console.log('unlinck failed '+e)
+//     }
+//  })
+// app.get('/loading',async(req,res)=>{
+//     ///let data = await sleep(5000)
+//     res.render('loading')
+// })
 
 const server = app.listen(process.env.PORT || PORT, () => {
     const port = server.address().port;
