@@ -54,7 +54,7 @@ async function handleLogin(page){                         // login page
         console.log(e)
     }
 
-    await page.screenshot({ path: './public/assets/login.png'});
+    //await page.screenshot({ path: './public/assets/login.png'});
 }
 
 async function login(page){                         // login page

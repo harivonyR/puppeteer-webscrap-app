@@ -19,12 +19,12 @@ var data = {
 
 // start the browser
 async function handleBrowser(){
-    restartBrowser(true)
+    restartBrowser()
     setInterval(async()=>{      // auto restart browser
         if(scapStatus.onScrap===false){
             scapStatus.onScrap = true
             console.log(">>> Restarting browser ... scraStatusOn")
-            await restartBrowser(true)
+            await restartBrowser()
                 .then(()=>{
                     scapStatus.onScrap = false
                     console.log(">>> Browser ok, scrap status off")

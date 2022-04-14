@@ -38,9 +38,17 @@ async function firstLogin(){
 }
 
 const restartBrowser = async()=>{
-    browser = await createBrowser()
-    page = await createPage(browser)
-    await firstLogin(page)
+    try{
+        await browser.close()
+    }
+    catch(e){
+        console.log("error on restart ::: browser not defined yet")
+    }
+    finally{
+        browser = await createBrowser()
+        page = await createPage(browser)
+        await firstLogin(page)
+    }
 }
 
 //await restartBrowser()
@@ -48,60 +56,66 @@ const restartBrowser = async()=>{
 async function fetchData(){
 
     // RUN puppeteer
-    await sessionExpired(page)
-        .then(async(expired)=>{
-            if(expired===true){
-                await restartBrowser()
-                await login(page)
-                console.log("[👍] handle seesion expired")
-            }
-            else if(expired===false){
-                console.log("[👍] session not expired")
-            }
-            else
-                console.log('[x] Error handling promise resolve bool on session expired')
+    // await sessionExpired(page)
+    //     .then(async(expired)=>{
+    //         if(expired===true){
+    //             await restartBrowser()
+    //             //await login(page)
+    //             console.log("[👍] handle seesion expired")
+    //         }
+    //         else if(expired===false){
+    //             console.log("[👍] session not expired")
+    //         }
+    //         else
+    //             console.log('[x] Error handling promise resolve bool on session expired')
             
-        })
-        .catch((e)=>console.log("ERR catch sessionExpiored"))
-    sleep(5000)
+    //     })
+    //     .catch((e)=>console.log("ERR catch sessionExpiored"))
     
-    
-    await page.goto('https://service.europe.arco.biz/ktmthinclient/Validation.aspx')
+    try{
+        await page.goto('https://service.europe.arco.biz/ktmthinclient/Validation.aspx')
         .then(()=>console.log("[👍] validation page opened"))
         .catch((e)=>console.log('Goto validation Fail page'))
     
-    // Wait for selector
-    await page.waitForSelector('.x-grid3-row-table tr',{visible:true,timeout: 0})
-        .then(()=>console.log('Selector ok'))
+        // Wait for selector
+        await page.waitForSelector('.x-grid3-row-table tr',{visible:true,timeout: 0})
+            .then(()=>console.log('Selector ok'))
 
-    let rows = await page.evaluate(
-            ()=> Array.from(window.document.querySelectorAll('.x-grid3-row-table tr'))
-            .map((row,i)=>{
-                let data = {
-                    index : i+1,
-                    batch : row.querySelector('div.x-grid3-col-name').innerText,
-                    priority : row.querySelector('div.x-grid3-col-0').innerText,
-                    client : row.querySelector('div.x-grid3-col-batchType').innerText,
-                    document : row.querySelector('div.x-grid3-col-6').innerText,
-                    date : row.querySelector('div.x-grid3-col-2').innerText,
-                    status : row.querySelector('div.x-grid3-col-status').innerText
-                }
-                return data
-            })
-    )
-    
-// Filter data
-    rows = rows.filter((e)=>e.status=="Ready")
-    console.log("Total file scraped "+rows.length)
-    console.log(rows);
+        let rows = await page.evaluate(
+                ()=> Array.from(window.document.querySelectorAll('.x-grid3-row-table tr'))
+                .map((row,i)=>{
+                    let data = {
+                        index : i+1,
+                        batch : row.querySelector('div.x-grid3-col-name').innerText,
+                        priority : row.querySelector('div.x-grid3-col-0').innerText,
+                        client : row.querySelector('div.x-grid3-col-batchType').innerText,
+                        document : row.querySelector('div.x-grid3-col-6').innerText,
+                        date : row.querySelector('div.x-grid3-col-2').innerText,
+                        status : row.querySelector('div.x-grid3-col-status').innerText
+                    }
+                    return data
+                })
+        )
+        
+    // Filter data
+        rows = rows.filter((e)=>e.status=="Ready")
+        console.log("Total file scraped "+rows.length)
+        //console.log(rows);
 
-// Saving file
-    await freeBtachFile()           // delete last batch file saved
-    await saveToCsv(rows,'batch');  // await csv file before conversion
-    csvToXls('batch');
-    //await browser.close();        
-    return (rows);
-    // close the browser
+    // Saving file
+        await freeBtachFile()           // delete last batch file saved
+        await saveToCsv(rows,'batch');  // await csv file before conversion
+        csvToXls('batch');
+        //await browser.close();        
+        return (rows);
+        // close the browser
+
+    }
+    catch(e){
+        console.log("error :: exeption, validation page not reached")
+        await restartBrowser()
+        return []
+    }
 }
 
 module.exports = {fetchData,restartBrowser,browser,page}
