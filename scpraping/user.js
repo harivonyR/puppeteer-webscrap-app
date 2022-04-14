@@ -1,6 +1,11 @@
-const puppeteer = require('puppeteer')
 const sleep = require('./helper')
 const fs = require('fs')
+
+const dotenv = require ('dotenv')
+dotenv.config({path : '../.env'})
+
+const userName = process.env.USER.toString()
+const passWord = process.env.PASSWORD.toString()
 
 async function login (browser){
     console.log('[👍] login browser ');
@@ -13,10 +18,10 @@ async function login (browser){
 
     //await sleep(4000)
     await loginPage.waitForSelector('#userName')
-    await loginPage.type('#userName','SENMAU62',{delai:50});
+    await loginPage.type('#userName',userName,{delai:50});
     //await sleep(3000)
     await loginPage.waitForSelector('#userPassword')
-    await loginPage.type('#userPassword','M3rckx',{delai:50});
+    await loginPage.type('#userPassword',passWord,{delai:50});
     await loginPage.keyboard.press('Enter');
     sleep(5000)
     console.log('[👍] Login Done ! ');
@@ -27,7 +32,7 @@ async function login (browser){
         console.log(e)
     }
 
-    await loginPage.screenshot({ path: './public/assets/login.png'});
+    //await loginPage.screenshot({ path: './public/assets/login.png'});
 }
 
 module.exports = login;

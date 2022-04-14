@@ -6,6 +6,13 @@ const {emiter} = require('./event/EventEmmiter');
 const {fetchData,restartBrowser,browser,page} = require ('./scpraping/mockScrapper');
 const sleep = require("./scpraping/helper");
 
+require('dotenv').config()
+
+console.log(process.env.USER)
+// const userName = process.env.USER
+// (()=>console.log(' username :'+userName))()
+
+
 const PORT = process.env.PORT || 8080;
 
 var scapStatus = {
@@ -19,12 +26,17 @@ var data = {
 
 // start the browser
 async function handleBrowser(){
-    restartBrowser(true)
+    console.log("[browser] first init, onScrap == true")
+    scapStatus.onScrap = true
+    await restartBrowser()
+    scapStatus.onScrap = false
+    console.log("[browser] first Browser ready, onScrap == false")
+    
     setInterval(async()=>{      // auto restart browser
         if(scapStatus.onScrap===false){
             scapStatus.onScrap = true
             console.log(">>> Restarting browser ... scraStatusOn")
-            await restartBrowser(true)
+            await restartBrowser()
                 .then(()=>{
                     scapStatus.onScrap = false
                     console.log(">>> Browser ok, scrap status off")
