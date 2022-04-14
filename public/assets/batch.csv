@@ -1,9 +1,15 @@
 index,batch,priority,client,document,date,status
-20,pol_mechelen-04- BATCH 7466848,5,cs_besturen_01_team3,2,4/14/2022 8:27:39 AM,Ready
-21,ocmw_beerse-01- BATCH 8122502,5,cs_besturen_01_team3,7,4/14/2022 8:32:52 AM,Ready
-22,BATCH 4248260,5,281_comp_ninove,3,4/14/2022 8:41:39 AM,Ready
-23,stad_aalst-01- BATCH 8122560,5,cs_besturen_01_team3,9,4/14/2022 8:44:23 AM,Ready
-24,gem_lichtervelde-MULTI- BATCH 56,5,cs_besturen_schaubroeck,14,4/14/2022 8:44:34 AM,Ready
-25,gem_lint-03- BATCH 8899171,5,cs_besturen_01_team3,1,4/14/2022 8:47:45 AM,Ready
-26,gem_lievegem-MULTI- BATCH 568668,5,cs_besturen_schaubroeck,7,4/14/2022 8:49:51 AM,Ready
-27,ocmw_lievegem-MULTI- BATCH 56866,5,cs_besturen_schaubroeck,1,4/14/2022 8:50:26 AM,Ready
+3,BATCH 2652797,4,164_comp_scherpenheuvel,2,4/14/2022 9:38:02 AM,Ready
+21,ocmw_pittem-MULTI- BATCH 3712745,5,cs_besturen_schaubroeck,3,4/14/2022 9:36:34 AM,Ready
+22,stad_maaseik-03- BATCH 8899565,5,cs_besturen_01_team3,2,4/14/2022 9:37:02 AM,Ready
+23,zorg_opcura-MULTI- BATCH 3712750,5,cs_besturen_schaubroeck,1,4/14/2022 9:37:05 AM,Ready
+24,stad_leuven-03- BATCH 8899568,5,cs_besturen_01_team3,8,4/14/2022 9:37:26 AM,Ready
+25,ocmw_borsbeek-01- BATCH 8123104,5,cs_besturen_01_team3,2,4/14/2022 9:38:41 AM,Ready
+26,stad_herentals-02- BATCH 7394646,5,cs_besturen_01_team3,1,4/14/2022 9:38:44 AM,Ready
+27,stad_lommel-03- BATCH 8899570,5,cs_besturen_01_team3,10,4/14/2022 9:38:47 AM,Ready
+28,stad_stniklaas-04- BATCH 7467189,5,cs_besturen_01_team3,6,4/14/2022 9:39:23 AM,Ready
+29,gem_tessenderlo-04- BATCH 746719,5,cs_besturen_01_team3,2,4/14/2022 9:39:34 AM,Ready
+30,gem_damme-MULTI- BATCH 5879330,5,cs_besturen_schaubroeck,4,4/14/2022 9:39:43 AM,Ready
+31,gem_westerlo-05- BATCH 5347357,5,cs_besturen_01_team3,1,4/14/2022 9:39:50 AM,Ready
+32,gem_herenthout-MULTI- BATCH 4879,5,cs_besturen_schaubroeck,5,4/14/2022 9:39:53 AM,Ready
+33,gem_heusden_zolder-MULTI- BATCH,5,cs_besturen_schaubroeck,4,4/14/2022 9:40:23 AM,Ready
