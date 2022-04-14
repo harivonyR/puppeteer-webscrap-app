@@ -1,8 +1,8 @@
 const puppeteer = require('puppeteer');
 //const login = require('./user');
 const {saveToCsv,csvToXls,freeBtachFile} = require('./file');
-const {handleLogin,login,sessionExpired} = require('./pageCheck')
-const sleep = require('./helper');
+const {login} = require('./pageCheck')
+//const sleep = require('./helper');
 const fs = require ('fs');
 //const login = require('./user');
 // const login = require('./user');
@@ -22,6 +22,7 @@ async function createBrowser(){
     console.log('[👍] browser .. ');
     return browser
 }
+
 async function createPage(browser){
     const page = await browser.newPage();
     console.log('[👍] new page created  ..');
@@ -52,7 +53,6 @@ const restartBrowser = async()=>{
 }
 
 //await restartBrowser()
-
 async function fetchData(){
 
     // RUN puppeteer
@@ -112,7 +112,7 @@ async function fetchData(){
 
     }
     catch(e){
-        console.log("error :: exeption, validation page not reached")
+        console.log("validation page not reached :: "+e)
         await restartBrowser()
         return []
     }
