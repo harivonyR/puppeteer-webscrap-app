@@ -19,7 +19,12 @@ var data = {
 
 // start the browser
 async function handleBrowser(){
-    restartBrowser()
+    console.log("[browser] first init, onScrap == true")
+    scapStatus.onScrap = true
+    await restartBrowser()
+    scapStatus.onScrap = false
+    console.log("[browser] first Browser ready, onScrap == false")
+    
     setInterval(async()=>{      // auto restart browser
         if(scapStatus.onScrap===false){
             scapStatus.onScrap = true
