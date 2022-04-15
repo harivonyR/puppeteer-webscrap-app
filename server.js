@@ -2,13 +2,11 @@ const express = require ("express");
 const app = express();
 const path = require ("path")
 const fs = require ('fs');
-const {emiter} = require('./event/EventEmmiter');
-const {fetchData,restartBrowser,browser,page} = require ('./scpraping/mockScrapper');
+//const {emiter} = require('./event/EventEmmiter');
+const {fetchData,restartBrowser} = require ('./scpraping/mockScrapper');
 const sleep = require("./scpraping/helper");
 
-require('dotenv').config()
 
-console.log(process.env.USER)
 // const userName = process.env.USER
 // (()=>console.log(' username :'+userName))()
 

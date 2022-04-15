@@ -118,4 +118,4 @@ async function fetchData(){
     }
 }
 
-module.exports = {fetchData,restartBrowser,browser,page}
+module.exports = {fetchData,restartBrowser}
