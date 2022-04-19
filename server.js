@@ -46,7 +46,7 @@ async function handleBrowser(){
         
     },900000)
 }
-handleBrowser()
+
 
 async function waitForScrap(scapStatus){       // wait scraping to be done
     (function listen(){
@@ -103,8 +103,9 @@ app.get('/download', async (req,res)=>{
     catch (e){console.log('Download error ::'+e)}
  })
 
-const server = app.listen(process.env.PORT || PORT, () => {
+const server = app.listen(process.env.PORT || PORT, async() => {
     const port = server.address().port;
+    await handleBrowser()
     console.log(`Express is working on port ${port}`);
 });
 
